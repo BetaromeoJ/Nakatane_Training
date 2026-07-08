@@ -25,12 +25,6 @@ body {
 .grad-pill { background: linear-gradient(90deg, #eef2ff 0%, #f3eafe 100%); }
 .hidden-theme { background: linear-gradient(90deg, #eef2ff 0%, #f3eafe 100%); }
 
-.flow-item {
-  border-top: 1px solid #ececf0;
-  transition: background .25s ease, border-color .25s ease;
-}
-.flow-item:hover { background: #f8f9ff; border-color: #c7d2fe; border-radius: 1rem; }
-
 .concept-num { font-size: 4rem; font-weight: 800; color: #e5e7f0; line-height: 1; }
 
 .step-num {
@@ -46,6 +40,29 @@ body {
 }
 
 .drawer { transition: transform .35s ease; }
+
+/* ------------------------------------------------------------
+   カード・枠のホバー「浮き上がり」エフェクト
+   マウスを乗せると、少し持ち上がって影が強くなる。
+   講座カード(flow-item)、コンセプトカード、リソースカードなど、
+   枠で囲まれた要素すべてに共通適用する。
+   ------------------------------------------------------------ */
+.flow-item,
+.card-hover {
+  transition: background .25s ease, border-color .25s ease,
+              transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s ease;
+}
+.flow-item:hover,
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 32px -14px rgba(79,109,245,0.28);
+  border-color: #c7d2fe;
+}
+.flow-item:hover {
+  background: #f8f9ff;
+  border-radius: 1rem;
+}
+.flow-item { border-top: 1px solid #ececf0; }
 
 /* ------------------------------------------------------------
    スプラッシュ / ページ遷移演出
@@ -93,13 +110,17 @@ body {
 }
 
 /* ------------------------------------------------------------
-   ボタンのタップ「浮き上がり」エフェクト
-   タップ／クリックした瞬間に少し持ち上がり、
-   影が強くなってからすっと戻る。
+   ボタンの「浮き上がり」エフェクト
+   ホバーで軽く持ち上がり、タップ／クリックした瞬間はさらに
+   大きく持ち上がって影が強くなってから、すっと戻る。
    ------------------------------------------------------------ */
 .btn-tap {
   transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s ease;
   will-change: transform;
+}
+.btn-tap:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -8px rgba(79,109,245,0.3);
 }
 .btn-tap.lift {
   transform: translateY(-7px) scale(1.035);
