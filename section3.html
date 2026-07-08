@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第3講座: NotebookLM実践講座 | 中種子町情報教育部会研修会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Material+Symbols+Outlined" rel="stylesheet">
+<link rel="stylesheet" href="assets/tailwind.css">
+<link rel="stylesheet" href="assets/common.css">
+<style>
+  .bg-number {
+    position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%);
+    font-size: 8rem; font-weight: 800; color: #e9ebf5; z-index: -1; line-height: 1;
+    user-select: none;
+  }
+</style>
+</head>
+<body class="text-ink antialiased">
+
+  <div id="splash" class="splash-overlay">
+    <div class="splash-text">中種子町情報教育部会研修会<span class="splash-sub">WORK LESS. TEACH MORE.</span></div>
+  </div>
+
+  <button id="menuBtn" aria-label="Menu" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
+    <span class="block w-5 h-0.5 bg-ink"></span>
+    <span class="block w-5 h-0.5 bg-ink"></span>
+    <span class="block w-5 h-0.5 bg-ink"></span>
+  </button>
+
+  <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto">
+    <button id="closeBtn" class="mb-6 text-2xl leading-none">&times;</button>
+    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">Workshop Flow</h3>
+    <ul class="mb-8 space-y-2 text-sm">
+      <li><a href="index.html" class="flex justify-between py-1"><span>Top</span><span class="text-gray-400">トップページ</span></a></li>
+      <li><a href="section1.html" class="flex justify-between py-1"><span>01</span><span class="text-gray-400">Geminiで校務改革</span></a></li>
+      <li><a href="section2.html" class="flex justify-between py-1"><span>02</span><span class="text-gray-400">Googleフォームで校務改善</span></a></li>
+      <li><a href="section3.html" class="flex justify-between py-1"><span>03</span><span class="text-gray-400">NotebookLM実践講座</span></a></li>
+      <li><a href="section4.html" class="flex justify-between py-1"><span>04</span><span class="text-gray-400">NotebookLM×Canva教育版</span></a></li>
+    </ul>
+    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">About</h3>
+    <ul class="space-y-2 text-sm">
+      <li><a href="index.html#instructor" class="flex justify-between py-1"><span>Instructor</span><span class="text-gray-400">講師紹介</span></a></li>
+      <li><a href="index.html#book" class="flex justify-between py-1"><span>Book</span><span class="text-gray-400">著作</span></a></li>
+    </ul>
+  </nav>
+  <div id="overlay" class="fixed inset-0 bg-black/30 z-40 hidden"></div>
+
+  <main class="max-w-3xl mx-auto px-6 pt-32 pb-24">
+
+    <div class="relative text-center mb-14">
+      <span class="bg-number">03</span>
+      <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Lecture 03</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight">NotebookLM実践講座</h1>
+      <p class="text-gray-500">資料整理・教材研究・研修報告に使う</p>
+    </div>
+
+    <section class="bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-16 shadow-sm">
+      <h2 class="text-blue-600 text-xl font-bold mb-4">ねらい</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        NotebookLMを使って、資料を読む・整理する・教材研究する負担を減らす。
+      </p>
+      <div class="hidden-theme rounded-xl p-5">
+        <h3 class="font-bold mb-1">キーワード</h3>
+        <p class="text-gray-600 text-sm">資料を入れるだけで、仕事が進む。</p>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">主な内容</h2>
+      <ul class="space-y-3 text-gray-600 text-sm leading-relaxed list-disc list-inside">
+        <li>NotebookLMとGeminiの違い</li>
+        <li>資料の要約</li>
+        <li>研修報告書の作成</li>
+        <li>教材研究</li>
+        <li>授業案作成</li>
+        <li>学級通信・所見のたたき台作成</li>
+        <li>音声概要・マインドマップ・クイズ活用</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-blue-600 text-xl font-bold mb-8">やってみよう!</h2>
+      <div class="space-y-10">
+        <div class="flex gap-6 pb-10 border-b border-gray-100">
+          <span class="step-num shrink-0">01</span>
+          <div>
+            <h3 class="text-xl md:text-2xl font-bold mb-2">NotebookLMに資料を読み込ませる</h3>
+            <p class="text-gray-500 mb-5">下のボタンからNotebookLMを開き、手元の資料をアップロードします。</p>
+            <a href="https://notebooklm.google.com/" target="_blank" class="btn-tap inline-flex items-center gap-2 bg-ink text-white rounded-full px-6 py-3 font-bold hover:bg-gray-800 transition"><span class="material-symbols-outlined">auto_stories</span>NotebookLMを開く</a>
+          </div>
+        </div>
+        <div class="flex gap-6 pb-10 border-b border-gray-100">
+          <span class="step-num shrink-0">02</span>
+          <div>
+            <h3 class="text-xl md:text-2xl font-bold mb-2">要約・音声概要を生成する</h3>
+            <p class="text-gray-500">資料の要約を作らせたり、音声概要(Audio Overview)を聞いてみましょう。</p>
+          </div>
+        </div>
+        <div class="flex gap-6">
+          <span class="step-num shrink-0">03</span>
+          <div>
+            <h3 class="text-xl md:text-2xl font-bold mb-2">マインドマップで整理する</h3>
+            <p class="text-gray-500">資料の要点をマインドマップやクイズ形式で整理し、教材研究や研修報告に役立てましょう。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="flex justify-between items-center mt-16 text-sm">
+      <a href="section2.html" class="text-gray-400 hover:text-gray-600">&larr; Googleフォームで校務改善</a>
+      <a href="section4.html" class="text-blue-600 font-semibold hover:text-blue-700">Next: NotebookLM×Canva教育版 &rarr;</a>
+    </div>
+  </main>
+
+  <script src="assets/common.js"></script>
+</body>
+</html>
