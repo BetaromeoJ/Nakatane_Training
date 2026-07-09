@@ -5,9 +5,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // ---- スプラッシュ演出 ----
-  // ページを開くたび（起動時／ページ遷移後）に、
-  // 黒背景＋白文字が下からフェードインしてはっきりと表示され、
-  // 少し保持したのち、黒背景ごと下から上へシュッとスライドして消える。
   const splash = document.getElementById('splash');
   if (splash) {
     requestAnimationFrame(() => {
@@ -36,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.add('lift');
       setTimeout(() => btn.classList.remove('lift'), 260);
     });
-    // タッチ端末でも同様に反応させる
     btn.addEventListener('touchstart', () => {
       btn.classList.add('lift');
     }, { passive: true });

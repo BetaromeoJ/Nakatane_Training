@@ -8,18 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Material+Symbols+Outlined" rel="stylesheet">
 <link rel="stylesheet" href="assets/tailwind.css">
 <link rel="stylesheet" href="assets/common.css">
-<style>
-  .bg-number {
-    position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%);
-    font-size: 8rem; font-weight: 800; color: #e9ebf5; z-index: -1; line-height: 1;
-    user-select: none;
-  }
-</style>
 </head>
 <body class="text-ink antialiased">
 
   <div id="splash" class="splash-overlay">
-    <div class="splash-text">中種子町情報教育部会研修会<span class="splash-sub">WORK LESS. TEACH MORE.</span></div>
+    <div class="splash-text">第2講座<span class="splash-sub">Googleフォームで校務改善</span></div>
   </div>
 
   <button id="menuBtn" aria-label="Menu" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
@@ -39,76 +32,82 @@
       <li><a href="section4.html" class="flex justify-between py-1"><span>04</span><span class="text-gray-400">NotebookLM×Canva教育版</span></a></li>
     </ul>
     <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">About</h3>
-    <ul class="space-y-2 text-sm">
+    <ul class="mb-8 space-y-2 text-sm">
       <li><a href="index.html#instructor" class="flex justify-between py-1"><span>Instructor</span><span class="text-gray-400">講師紹介</span></a></li>
       <li><a href="index.html#book" class="flex justify-between py-1"><span>Book</span><span class="text-gray-400">著作</span></a></li>
+    </ul>
+    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">Tools (External)</h3>
+    <ul class="mb-8 space-y-2 text-sm">
+      <li><a href="https://gemini.google.com/" target="_blank" class="flex justify-between py-1"><span>Gemini</span><span class="text-gray-400">Start Chat</span></a></li>
+      <li><a href="https://workspace.google.com/products/forms/" target="_blank" class="flex justify-between py-1"><span>Google Forms</span><span class="text-gray-400">アンケート</span></a></li>
+      <li><a href="https://notebooklm.google.com/" target="_blank" class="flex justify-between py-1"><span>NotebookLM</span><span class="text-gray-400">Start Research</span></a></li>
+      <li><a href="https://www.canva.com/education/" target="_blank" class="flex justify-between py-1"><span>Canva for Education</span><span class="text-gray-400">教材・発表</span></a></li>
+    </ul>
+    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">SNS</h3>
+    <ul class="space-y-2 text-sm">
+      <li><a href="https://www.facebook.com/wowwdarling/" target="_blank" class="flex justify-between py-1"><span>Facebook</span><span class="text-gray-400">@wowwdarling</span></a></li>
+      <li><a href="https://www.instagram.com/wowwdarling/" target="_blank" class="flex justify-between py-1"><span>Instagram</span><span class="text-gray-400">@wowwdarling</span></a></li>
     </ul>
   </nav>
   <div id="overlay" class="fixed inset-0 bg-black/30 z-40 hidden"></div>
 
-  <main class="max-w-3xl mx-auto px-6 pt-32 pb-24">
-
-    <div class="relative text-center mb-14">
+  <main class="max-w-4xl mx-auto px-6">
+    <header class="relative pt-40 pb-16">
       <span class="bg-number">02</span>
       <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Lecture 02</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight">Googleフォームで校務改善</h1>
-      <p class="text-gray-500">アンケートから自動集計・分析まで</p>
-    </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight whitespace-nowrap">Googleフォームで校務改善</h1>
+      <p class="text-gray-500 text-lg">アンケートを「作る」だけで終わらせず、集めて・分析して・活かすところまで。</p>
+    </header>
 
-    <section class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-16 shadow-sm">
+    <section class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-10">
       <h2 class="text-blue-600 text-xl font-bold mb-4">ねらい</h2>
-      <p class="text-gray-600 leading-relaxed mb-6">
-        Googleフォームを「作る」だけでなく、集計・分析・報告まで校務改善につなげる。
-      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">Googleフォームを使い、行事アンケートや生徒アンケートを効率よく作成・回収する。回答の自動集計・グラフ化を活用し、集めた情報を校務改善に活かす視点を持つ。</p>
       <div class="hidden-theme rounded-xl p-5">
-        <h3 class="font-bold mb-1">キーワード</h3>
-        <p class="text-gray-600 text-sm">情報を集めて、校務に活かす。</p>
+        <p class="text-xs font-bold text-gray-400 uppercase mb-2">キーワード</p>
+        <p class="font-bold text-sm">アンケート設計 / 自動集計 / スプレッドシート連携</p>
       </div>
     </section>
 
-    <section class="mb-16">
+    <section class="mb-10">
       <h2 class="text-blue-600 text-xl font-bold mb-6">主な内容</h2>
-      <ul class="space-y-3 text-gray-600 text-sm leading-relaxed list-disc list-inside">
-        <li>Googleフォームの基本</li>
-        <li>Geminiで質問項目を作成</li>
-        <li>フォーム作成</li>
-        <li>スプレッドシートで自動集計</li>
-        <li>Geminiで自由記述を分析</li>
-        <li>報告文・通知文への活用</li>
+      <ul class="space-y-4">
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">Googleフォームの基本操作と質問形式の選び方</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">回答の自動集計・グラフ表示・スプレッドシート出力</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">集めたデータを校務改善につなげる考え方</span></li>
       </ul>
     </section>
 
-    <section>
-      <h2 class="text-blue-600 text-xl font-bold mb-8">やってみよう!</h2>
-      <div class="space-y-10">
-        <div class="flex gap-6 pb-10 border-b border-gray-100">
-          <span class="step-num shrink-0">01</span>
+    <section class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">やってみよう!</h2>
+      <div class="space-y-6">
+        <div class="flex gap-5">
+          <span class="step-num">01</span>
           <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">Googleフォームを開く</h3>
-            <p class="text-gray-500 mb-5">下のボタンからGoogleフォームを開きます。</p>
-            <a href="https://docs.google.com/forms/" target="_blank" class="btn-tap inline-flex items-center gap-2 bg-ink text-white rounded-full px-6 py-3 font-bold hover:bg-gray-800 transition"><span class="material-symbols-outlined">fact_check</span>フォームを開く</a>
+            <h3 class="text-xl md:text-2xl font-bold mb-2">簡単なアンケートを作る</h3>
+            <p class="text-gray-600 mb-3">質問を3〜5個ほど用意し、フォームを作成してみる。</p>
+            <a href="https://workspace.google.com/products/forms/" target="_blank" class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold hover:bg-gray-800 transition">Google Formsを開く</a>
           </div>
         </div>
-        <div class="flex gap-6 pb-10 border-b border-gray-100">
-          <span class="step-num shrink-0">02</span>
+        <div class="flex gap-5">
+          <span class="step-num">02</span>
           <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">Geminiに質問項目を考えさせる</h3>
-            <p class="text-gray-500">聞きたいことをGeminiに伝えて、質問項目のたたき台を作ってもらいましょう。</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-2">回答をリンクさせる</h3>
+            <p class="text-gray-600">回答をスプレッドシートにリンクし、集計結果をその場で確認する。</p>
           </div>
         </div>
-        <div class="flex gap-6">
-          <span class="step-num shrink-0">03</span>
+        <div class="flex gap-5">
+          <span class="step-num">03</span>
           <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">自動集計・分析する</h3>
-            <p class="text-gray-500">回答をスプレッドシートで自動集計し、自由記述はGeminiに分析してもらいましょう。</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-2">集計結果を読み解く</h3>
+            <p class="text-gray-600">グラフや自由記述の傾向から、次の一手を考えてみる。</p>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="flex justify-between items-center mt-16 text-sm">
-      <a href="section1.html" class="text-gray-400 hover:text-gray-600">&larr; Geminiで校務改革</a>
-      <a href="section3.html" class="text-blue-600 font-semibold hover:text-blue-700">Next: NotebookLM実践講座 &rarr;</a>
+    <div class="flex justify-between items-center border-t border-gray-100 pt-8 pb-20 text-sm">
+      <a href="section1.html" class="text-gray-500 hover:text-ink">&larr; 第1講座へ戻る</a>
+      <a href="section3.html" class="font-bold hover:text-blue-600">第3講座へ &rarr;</a>
     </div>
   </main>
 
