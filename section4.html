@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第4講座: NotebookLM × Canva教育版 | 中種子町情報教育部会研修会</title>
+<title>第4講座: Canva教育版×AI | 中種子町情報教育部会研修会</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Material+Symbols+Outlined" rel="stylesheet">
 <link rel="stylesheet" href="assets/tailwind.css">
@@ -12,117 +12,265 @@
 <body class="text-ink antialiased">
 
   <div id="splash" class="splash-overlay">
-    <div class="splash-text">第4講座<span class="splash-sub">NotebookLM × Canva教育版</span></div>
+    <div class="splash-text">第4講座<span class="splash-sub">Canva教育版 × AI</span></div>
   </div>
 
-  <button id="menuBtn" aria-label="Menu" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
+  <div id="copy-announcer" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
+
+  <button id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
     <span class="block w-5 h-0.5 bg-ink"></span>
     <span class="block w-5 h-0.5 bg-ink"></span>
     <span class="block w-5 h-0.5 bg-ink"></span>
   </button>
 
-  <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto">
-    <button id="closeBtn" class="mb-6 text-2xl leading-none">&times;</button>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">Workshop Flow</h3>
+  <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto" aria-label="サイト内メニュー">
+    <button id="closeBtn" aria-label="メニューを閉じる" class="mb-6 text-2xl leading-none">&times;</button>
     <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="index.html" class="flex justify-between py-1"><span>Top</span><span class="text-gray-400">トップページ</span></a></li>
-      <li><a href="section1.html" class="flex justify-between py-1"><span>01</span><span class="text-gray-400">Geminiで校務改革</span></a></li>
-      <li><a href="section2.html" class="flex justify-between py-1"><span>02</span><span class="text-gray-400">Googleフォームで校務改善</span></a></li>
-      <li><a href="section3.html" class="flex justify-between py-1"><span>03</span><span class="text-gray-400">NotebookLM実践講座</span></a></li>
-      <li><a href="section4.html" class="flex justify-between py-1"><span>04</span><span class="text-gray-400">NotebookLM×Canva教育版</span></a></li>
+      <li><a href="index.html" class="flex justify-between py-1"><span>トップ</span></a></li>
+      <li><a href="section1.html" class="flex justify-between py-1"><span>第1講座</span><span class="text-gray-400">Gemini</span></a></li>
+      <li><a href="section2.html" class="flex justify-between py-1"><span>第2講座</span><span class="text-gray-400">Googleフォーム</span></a></li>
+      <li><a href="section3.html" class="flex justify-between py-1"><span>第3講座</span><span class="text-gray-400">NotebookLM</span></a></li>
+      <li><a href="section4.html" aria-current="page" class="flex justify-between py-1 font-bold text-blue-600"><span>第4講座</span><span>Canva</span></a></li>
     </ul>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">About</h3>
-    <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="index.html#instructor" class="flex justify-between py-1"><span>Instructor</span><span class="text-gray-400">講師紹介</span></a></li>
-      <li><a href="index.html#book" class="flex justify-between py-1"><span>Book</span><span class="text-gray-400">著作</span></a></li>
-    </ul>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">Tools (External)</h3>
-    <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="https://gemini.google.com/" target="_blank" class="flex justify-between py-1"><span>Gemini</span><span class="text-gray-400">Start Chat</span></a></li>
-      <li><a href="https://workspace.google.com/products/forms/" target="_blank" class="flex justify-between py-1"><span>Google Forms</span><span class="text-gray-400">アンケート</span></a></li>
-      <li><a href="https://notebooklm.google.com/" target="_blank" class="flex justify-between py-1"><span>NotebookLM</span><span class="text-gray-400">Start Research</span></a></li>
-      <li><a href="https://www.canva.com/education/" target="_blank" class="flex justify-between py-1"><span>Canva for Education</span><span class="text-gray-400">教材・発表</span></a></li>
-    </ul>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">SNS</h3>
-    <ul class="space-y-2 text-sm">
-      <li><a href="https://www.facebook.com/wowwdarling/" target="_blank" class="flex justify-between py-1"><span>Facebook</span><span class="text-gray-400">@wowwdarling</span></a></li>
-      <li><a href="https://www.instagram.com/wowwdarling/" target="_blank" class="flex justify-between py-1"><span>Instagram</span><span class="text-gray-400">@wowwdarling</span></a></li>
+    <ul class="mb-8 space-y-2 text-sm border-t border-gray-100 pt-6">
+      <li><a href="#lecture4-material" class="flex justify-between py-1"><span>配布資料</span></a></li>
+      <li><a href="#lecture4-video" class="flex justify-between py-1"><span>復習動画</span></a></li>
+      <li><a href="#lecture4-survey" class="flex justify-between py-1"><span>アンケート</span></a></li>
+      <li><a href="index.html#privacy" class="flex justify-between py-1"><span>個人情報の取扱い</span></a></li>
     </ul>
   </nav>
   <div id="overlay" class="fixed inset-0 bg-black/30 z-40 hidden"></div>
 
   <main class="max-w-4xl mx-auto px-6">
-    <header class="relative pt-40 pb-16">
-      <span class="bg-number">04</span>
+
+    <header class="relative pt-40 pb-10">
+      <span class="bg-number" aria-hidden="true">04</span>
       <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Lecture 04</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight whitespace-nowrap">NotebookLM × Canva教育版</h1>
-      <p class="text-gray-500 text-lg">AIで教材・プレゼン資料を作り、スマホで発表まで仕上げる。</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 tracking-tight whitespace-nowrap">Canva教育版 × AI</h1>
+      <p class="text-lg md:text-xl text-gray-700 font-bold mb-2">教材・プレゼン資料を「伝わる形」に仕上げる</p>
+      <p class="text-blue-600 font-bold mb-8">AIで作り、Canvaで伝える。</p>
     </header>
 
-    <section class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-10">
+    <section class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-6">
       <h2 class="text-blue-600 text-xl font-bold mb-4">ねらい</h2>
-      <p class="text-gray-600 leading-relaxed mb-6">NotebookLMでまとめた内容を、Canva教育版でプレゼン資料に仕上げる一連の流れを体験する。スマホをリモコン代わりに使い、その場で発表まで完結させる感覚をつかむ。</p>
+      <p class="text-gray-600 leading-relaxed mb-6">NotebookLMで生成したスライドやインフォグラフィックをCanvaへ取り込み、デザインを調整します。さらに、マジックレイヤー、スピーカーノート、スマートフォンによるリモコン・プロンプター機能を活用し、資料作成から発表までの流れを体験します。</p>
       <div class="hidden-theme rounded-xl p-5">
         <p class="text-xs font-bold text-gray-400 uppercase mb-2">キーワード</p>
-        <p class="font-bold text-sm">AI要約からのスライド化 / Canva教育版 / スマホ発表</p>
+        <p class="font-bold text-sm">Canva教育版 / NotebookLM / マジックレイヤー / スピーカーノート / プレゼン</p>
       </div>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-blue-600 text-xl font-bold mb-6">主な内容</h2>
-      <ul class="space-y-4">
-        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">NotebookLMの要約からCanvaのスライドを組み立てる流れ</span></li>
-        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">Canva教育版のテンプレート活用と資料の整え方</span></li>
-        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">スマホをリモコンにした発表・共有の方法</span></li>
+    <nav class="quicknav mb-10" aria-label="第4講座 ページ内メニュー">
+      <a href="#lecture4-schedule" class="quicknav-btn" aria-label="今日の流れへ移動"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>今日の流れ</a>
+      <a href="#lecture4-practice" class="quicknav-btn" aria-label="演習へ移動"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span>演習へ</a>
+      <a href="#lecture4-prompts" class="quicknav-btn" aria-label="プロンプト集へ移動"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span>プロンプト集</a>
+    </nav>
+
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">今日できるようになること</h2>
+      <ul class="space-y-3">
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">AIが作ったスライドをCanvaへ取り込む</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">Canvaでデザインを調整する</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">インフォグラフィックを編集する</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">スピーカーノートを作成する</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">スマートフォンを使って発表する</span></li>
       </ul>
     </section>
 
-    <section class="mb-16">
-      <h2 class="text-blue-600 text-xl font-bold mb-6">やってみよう!</h2>
+    <section id="lecture4-schedule" class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">75分の流れ</h2>
+      <div class="space-y-3">
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">0〜5分</span><span class="text-gray-600">本日のゴール</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">5〜15分</span><span class="text-gray-600">NotebookLMで作成したスライドを準備</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">15〜25分</span><span class="text-gray-600">Googleスライド経由でCanvaへ読み込み</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">25〜40分</span><span class="text-gray-600">インフォグラフィックとマジックレイヤー</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">40〜50分</span><span class="text-gray-600">スピーカーノートの作成</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">50〜60分</span><span class="text-gray-600">スマートフォンをリモコン・プロンプターにする</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">60〜70分</span><span class="text-gray-600">10分間の完成デモ</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">70〜75分</span><span class="text-gray-600">講座アンケート</span></div>
+      </div>
+    </section>
+
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">使用するツール</h2>
+      <ul class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">NotebookLM</li>
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">Googleスライド</li>
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">Canva教育版</li>
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">スマートフォン</li>
+      </ul>
+    </section>
+
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">事前準備</h2>
+      <ul class="space-y-3">
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">Canva教育版へログインできる状態</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">Googleアカウントへログインできる状態</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">可能であれば授業資料、学校だより、校内研修資料等を1点</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">資料がなくてもサンプルで参加可能</span></li>
+      </ul>
+    </section>
+
+    <section class="mb-10">
+      <div class="caution-card">
+        <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+        <p>個人情報を含む資料を生成AIへ入力しないでください。児童生徒名、保護者名、住所、電話番号、成績、健康情報などは、番号・記号・仮名に置き換えてください。AIが生成した内容は、そのまま使用せず、必ず教職員が内容を確認してください。</p>
+      </div>
+    </section>
+
+    <section id="lecture4-practice" class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">演習手順</h2>
       <div class="space-y-6">
-        <div class="flex gap-5">
-          <span class="step-num">01</span>
-          <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">Canva教育版を開く</h3>
-            <p class="text-gray-600 mb-3">教育アカウントでログインし、プレゼンテーションを新規作成する。</p>
-            <a href="https://www.canva.com/education/" target="_blank" class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold hover:bg-gray-800 transition">Canvaを開く</a>
+        <div class="flex gap-5"><span class="step-num">01</span><div><h3 class="text-xl font-bold mb-1">NotebookLMで作成したスライドを用意する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">02</span><div><h3 class="text-xl font-bold mb-1">GoogleスライドまたはPowerPoint形式で保存する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">03</span><div><h3 class="text-xl font-bold mb-1">Canvaへアップロードする</h3><a href="https://www.canva.com/education/" target="_blank" class="btn-tap inline-block mt-2 bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold hover:bg-gray-800 transition">Canvaを開く</a></div></div>
+        <div class="flex gap-5"><span class="step-num">04</span><div><h3 class="text-xl font-bold mb-1">フォント・配色・画像を調整する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">05</span><div><h3 class="text-xl font-bold mb-1">インフォグラフィックをCanvaへ読み込む</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">06</span><div><h3 class="text-xl font-bold mb-1">マジックレイヤーで編集可能な要素へ変換する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">07</span><div><h3 class="text-xl font-bold mb-1">Canva AIでスピーカーノートを作成する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">08</span><div><h3 class="text-xl font-bold mb-1">スマートフォンをリモコン・プロンプターとして接続する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">09</span><div><h3 class="text-xl font-bold mb-1">短いプレゼンを行う</h3></div></div>
+      </div>
+    </section>
+
+    <section id="lecture4-prompts" class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">コピーして使えるプロンプト</h2>
+
+      <div class="space-y-5">
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <div>
+              <h4>1. NotebookLMでスライドを生成する指示</h4>
+              <p class="prompt-scene">登録資料から、研修向けプレゼンテーションのたたき台を作ります。</p>
+            </div>
+            <button class="copy-btn" data-copy-target="#p4-1" aria-label="スライド生成のプロンプトをコピー"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span><span class="copy-label">コピー</span></button>
           </div>
+          <div id="p4-1" class="prompt-body">登録した資料をもとに、小中学校教職員向けのプレゼンテーションを作成してください。
+
+条件:
+・スライドは8枚程度
+・1枚につき1つのメッセージ
+・文字を詰め込みすぎない
+・専門用語には簡単な説明を付ける
+・学校現場の具体例を含める
+・最後に明日から実践できることを示す
+・落ち着いた教育研修向けの構成にする</div>
         </div>
-        <div class="flex gap-5">
-          <span class="step-num">02</span>
-          <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">NotebookLMの要約を貼り込む</h3>
-            <p class="text-gray-600">要約したテキストをもとに、スライドの構成をCanvaで組み立てる。</p>
+
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <div>
+              <h4>2. スピーカーノートを作る</h4>
+              <p class="prompt-scene">スライドに沿った、話し言葉のスピーカーノートを作成します。</p>
+            </div>
+            <button class="copy-btn" data-copy-target="#p4-2" aria-label="スピーカーノートのプロンプトをコピー"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span><span class="copy-label">コピー</span></button>
           </div>
+          <div id="p4-2" class="prompt-body">このプレゼンテーションの各スライドに対応するスピーカーノートを作成してください。
+
+条件:
+・聞き手は小中学校の教職員
+・スライドの文章をそのまま読み上げない
+・具体例を加える
+・1枚につき40〜60秒程度
+・自然な話し言葉にする
+・重要な部分は問いかけを入れる
+・全体で5〜8分程度に収める</div>
         </div>
-        <div class="flex gap-5">
-          <span class="step-num">03</span>
-          <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">スマホで発表する</h3>
-            <p class="text-gray-600">Canvaのプレゼンテーションモードとスマホのリモコン機能を使い、実際に発表してみる。</p>
+
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <div>
+              <h4>3. 子ども向けの説明に書き換える</h4>
+              <p class="prompt-scene">スライドの内容を、児童向けにやさしく書き換えます。</p>
+            </div>
+            <button class="copy-btn" data-copy-target="#p4-3" aria-label="子ども向け説明のプロンプトをコピー"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span><span class="copy-label">コピー</span></button>
           </div>
+          <div id="p4-3" class="prompt-body">このスライドの内容を、小学校高学年の児童にも理解できる説明に書き換えてください。
+
+条件:
+・難しい専門用語を避ける
+・身近な例を入れる
+・短い文章にする
+・一方的な説明ではなく、問いかけを含める</div>
         </div>
       </div>
     </section>
 
     <section class="mb-16">
-      <h2 class="text-blue-600 text-xl font-bold mb-6">最後の10分完成デモ</h2>
-      <ol class="space-y-3 list-decimal list-inside text-gray-600 marker:font-bold marker:text-blue-600">
-        <li>NotebookLMで研修資料を要約する</li>
-        <li>要約結果からポイントを3つに絞り込む</li>
-        <li>Canva教育版で新規プレゼンテーションを開く</li>
-        <li>テンプレートを1つ選び、色・フォントを整える</li>
-        <li>要約したポイントをスライドに貼り込む</li>
-        <li>画像やアイコンを挿入し、見やすく整える</li>
-        <li>スライドの順番と流れを確認する</li>
-        <li>スマホとプレゼンテーションモードを連携させる</li>
-        <li>実際にその場で発表してみる</li>
-      </ol>
+      <h2 class="text-blue-600 text-xl font-bold mb-6">10分間の完成デモ</h2>
+      <div class="space-y-3">
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-16 shrink-0">0:00</span><span class="text-gray-600">NotebookLMの資料を確認</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-16 shrink-0">1:00</span><span class="text-gray-600">スライドを生成・書き出し</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-16 shrink-0">2:30</span><span class="text-gray-600">Canvaへ読み込み</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-16 shrink-0">4:00</span><span class="text-gray-600">デザインを調整</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-16 shrink-0">5:30</span><span class="text-gray-600">インフォグラフィックをマジックレイヤーで加工</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-16 shrink-0">7:00</span><span class="text-gray-600">スピーカーノートを生成</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-16 shrink-0">8:00</span><span class="text-gray-600">スマートフォンを接続</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-16 shrink-0">9:00</span><span class="text-gray-600">短いプレゼンを実演</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-16 shrink-0">10:00</span><span class="text-gray-600">完成</span></div>
+      </div>
     </section>
 
-    <div class="flex justify-between items-center border-t border-gray-100 pt-8 pb-20 text-sm">
-      <a href="section3.html" class="text-gray-500 hover:text-ink">&larr; 第3講座へ戻る</a>
-      <a href="index.html" class="font-bold hover:text-blue-600">Topへ戻る &rarr;</a>
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">注意事項</h2>
+      <div class="caution-card">
+        <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+        <p>個人情報を含む資料を生成AIへ入力しないでください。児童生徒名、保護者名、住所、電話番号、成績、健康情報などは、番号・記号・仮名に置き換えてください。AIが生成した内容は、そのまま使用せず、必ず教職員が内容を確認してください。</p>
+      </div>
+    </section>
+
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">学校現場での活用例</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">授業スライド</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">学校だより</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">校内研修資料</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">保護者向け説明会</div>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">講座のまとめ</h2>
+      <div class="hidden-theme rounded-2xl p-8 text-center text-gray-700 font-bold leading-loose">
+        資料を準備する &rarr; NotebookLMで素材を作る &rarr; Canvaへ取り込む &rarr; デザインを整える &rarr; 話す内容を準備する &rarr; スマートフォンを使って発表する
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">資料・復習・アンケート</h2>
+      <div class="grid md:grid-cols-3 gap-5 mb-8">
+        <div id="lecture4-material" class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">description</span>
+          <h3>配布資料</h3>
+          <p>当日のスライドや配布用資料を確認できます。</p>
+          <a href="#lecture4-material" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">資料を開く</a>
+        </div>
+        <div id="lecture4-video" class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">play_circle</span>
+          <h3>復習動画</h3>
+          <p>GoogleスライドをGoogle Vidsで動画化した復習用コンテンツです。</p>
+          <a href="#lecture4-video" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">動画を見る</a>
+        </div>
+        <div id="lecture4-survey" class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">assignment</span>
+          <h3>講座アンケート</h3>
+          <p>研修改善のため、5分程度でご回答ください。</p>
+          <a href="#lecture4-survey" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">アンケートに回答する</a>
+        </div>
+      </div>
+
+      <div class="video-frame">
+        <div class="video-placeholder">復習動画は研修後に公開します。</div>
+        <!-- 動画公開時は以下のiframeのコメントを外し、src を差し替えてください
+        <iframe src="" title="第4講座 復習動画" allowfullscreen></iframe>
+        -->
+      </div>
+    </section>
+
+    <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">
+      <a href="index.html" class="text-gray-500 hover:text-ink">&larr; トップへ戻る</a>
+      <a href="section3.html" class="text-gray-500 hover:text-ink">&larr; 第3講座へ</a>
+      <a href="index.html" class="text-gray-400">次の講座はありません</a>
     </div>
   </main>
 

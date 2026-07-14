@@ -16,138 +16,127 @@
     <div class="splash-text">中種子町情報教育部会研修会<span class="splash-sub">WORK LESS. TEACH MORE.</span></div>
   </div>
 
+  <!-- コピー完了などを通知するライブリージョン(視覚的には非表示) -->
+  <div id="copy-announcer" class="sr-only" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
+
   <!-- ===== Floating menu button ===== -->
-  <button id="menuBtn" aria-label="Menu" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
+  <button id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
     <span class="block w-5 h-0.5 bg-ink"></span>
     <span class="block w-5 h-0.5 bg-ink"></span>
     <span class="block w-5 h-0.5 bg-ink"></span>
   </button>
 
   <!-- ===== Drawer Menu ===== -->
-  <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto">
-    <button id="closeBtn" class="mb-6 text-2xl leading-none">&times;</button>
+  <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto" aria-label="サイト内メニュー">
+    <button id="closeBtn" aria-label="メニューを閉じる" class="mb-6 text-2xl leading-none">&times;</button>
 
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">Workshop Flow</h3>
     <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="index.html" class="flex justify-between py-1"><span>Top</span><span class="text-gray-400">トップページ</span></a></li>
-      <li><a href="section1.html" class="flex justify-between py-1"><span>01</span><span class="text-gray-400">Geminiで校務改革</span></a></li>
-      <li><a href="section2.html" class="flex justify-between py-1"><span>02</span><span class="text-gray-400">Googleフォームで校務改善</span></a></li>
-      <li><a href="section3.html" class="flex justify-between py-1"><span>03</span><span class="text-gray-400">NotebookLM実践講座</span></a></li>
-      <li><a href="section4.html" class="flex justify-between py-1"><span>04</span><span class="text-gray-400">NotebookLM×Canva教育版</span></a></li>
+      <li><a href="index.html" aria-current="page" class="flex justify-between py-1 font-bold text-blue-600"><span>トップ</span></a></li>
+      <li><a href="section1.html" class="flex justify-between py-1"><span>第1講座</span><span class="text-gray-400">Gemini</span></a></li>
+      <li><a href="section2.html" class="flex justify-between py-1"><span>第2講座</span><span class="text-gray-400">Googleフォーム</span></a></li>
+      <li><a href="section3.html" class="flex justify-between py-1"><span>第3講座</span><span class="text-gray-400">NotebookLM</span></a></li>
+      <li><a href="section4.html" class="flex justify-between py-1"><span>第4講座</span><span class="text-gray-400">Canva</span></a></li>
     </ul>
-
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">About</h3>
-    <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="#instructor" class="flex justify-between py-1"><span>Instructor</span><span class="text-gray-400">講師紹介</span></a></li>
-      <li><a href="#book" class="flex justify-between py-1"><span>Book</span><span class="text-gray-400">著作</span></a></li>
-    </ul>
-
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">Tools (External)</h3>
-    <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="https://gemini.google.com/" target="_blank" class="flex justify-between py-1"><span>Gemini</span><span class="text-gray-400">Start Chat</span></a></li>
-      <li><a href="https://workspace.google.com/products/forms/" target="_blank" class="flex justify-between py-1"><span>Google Forms</span><span class="text-gray-400">アンケート</span></a></li>
-      <li><a href="https://notebooklm.google.com/" target="_blank" class="flex justify-between py-1"><span>NotebookLM</span><span class="text-gray-400">Start Research</span></a></li>
-      <li><a href="https://www.canva.com/education/" target="_blank" class="flex justify-between py-1"><span>Canva for Education</span><span class="text-gray-400">教材・発表</span></a></li>
-    </ul>
-
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">SNS</h3>
-    <ul class="space-y-2 text-sm">
-      <li><a href="https://www.facebook.com/wowwdarling/" target="_blank" class="flex justify-between py-1"><span>Facebook</span><span class="text-gray-400">@wowwdarling</span></a></li>
-      <li><a href="https://www.instagram.com/wowwdarling/" target="_blank" class="flex justify-between py-1"><span>Instagram</span><span class="text-gray-400">@wowwdarling</span></a></li>
+    <ul class="mb-8 space-y-2 text-sm border-t border-gray-100 pt-6">
+      <li><a href="section1.html#lecture1-material" class="flex justify-between py-1"><span>配布資料</span></a></li>
+      <li><a href="section1.html#lecture1-video" class="flex justify-between py-1"><span>復習動画</span></a></li>
+      <li><a href="section1.html#lecture1-survey" class="flex justify-between py-1"><span>アンケート</span></a></li>
+      <li><a href="#privacy" class="flex justify-between py-1"><span>個人情報の取扱い</span></a></li>
     </ul>
   </nav>
   <div id="overlay" class="fixed inset-0 bg-black/30 z-40 hidden"></div>
 
   <!-- ===== Hero ===== -->
-  <header class="pt-40 pb-24 px-6 max-w-4xl mx-auto">
+  <header class="pt-40 pb-20 px-6 max-w-4xl mx-auto">
     <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-8 uppercase">中種子町情報教育部会研修会</p>
-    <h1 class="hero-title text-6xl md:text-8xl lg:text-9xl font-extrabold mb-10 tracking-tight">
-      <span class="text-gray-900">Work Less.</span><br>
-      <span class="text-gray-600">Teach More.</span>
+    <h1 class="hero-title text-5xl md:text-7xl lg:text-8xl font-extrabold mb-8 tracking-tight">
+      <span class="text-gray-900">中種子町</span><br>
+      <span class="text-gray-600">情報教育部会研修会</span>
     </h1>
-    <p class="text-gray-500 text-lg md:text-xl mb-1">AIとGoogle Workspace、Canvaで。</p>
-    <p class="text-gray-500 text-lg md:text-xl mb-10">明日からの校務と授業準備を軽くする研修。</p>
-    <a href="#agenda" class="btn-tap inline-block bg-ink text-white rounded-full px-12 py-5 text-lg font-bold hover:bg-gray-800 transition">Start Workshop</a>
+    <p class="text-gray-500 text-lg md:text-xl mb-10">AIとGoogle Workspace・Canvaで、明日からの校務と授業準備を軽くする</p>
+    <p class="text-gray-600 leading-relaxed mb-10 max-w-2xl">本研修は、4つの講座から興味のある内容を選んで受講できる実践型研修です。各講座は独立しているため、1講座のみでも受講できます。希望すれば、複数講座または4講座すべてを受講することもできます。</p>
+    <a href="#courses" class="btn-tap inline-block bg-ink text-white rounded-full px-12 py-5 text-lg font-bold hover:bg-gray-800 transition">講座を見る</a>
   </header>
 
-  <!-- ===== Concept: 研修全体の流れ ===== -->
-  <section id="concept" class="max-w-4xl mx-auto px-6 py-20">
-    <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Concept</p>
-    <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 tracking-tight">研修の流れ</h2>
-    <p class="text-gray-500 mb-10">4講座全体のテーマは「AIとGoogle Workspace・Canvaで、明日からの校務と授業準備を軽くする」こと。流れはシンプルに、作る → 集める → 深める → 伝える。</p>
-    <div class="grid md:grid-cols-4 gap-5">
-      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="avatar text-2xl">🛠️</div>
-          <span class="concept-num">01</span>
-        </div>
-        <h3 class="text-xl font-bold mb-2">作る</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Geminiで文書・連絡文・会議記録をつくる。話す・書く仕事をAIで軽くする。</p>
-      </div>
-      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="avatar text-2xl">📥</div>
-          <span class="concept-num">02</span>
-        </div>
-        <h3 class="text-xl font-bold mb-2">集める</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Googleフォームで情報を集め、自動集計・分析して校務に活かす。</p>
-      </div>
-      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="avatar text-2xl">🔍</div>
-          <span class="concept-num">03</span>
-        </div>
-        <h3 class="text-xl font-bold mb-2">深める</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">NotebookLMで資料を読み込み、教材研究や研修報告の負担を減らす。</p>
-      </div>
-      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="avatar text-2xl">📣</div>
-          <span class="concept-num">04</span>
-        </div>
-        <h3 class="text-xl font-bold mb-2">伝える</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">Canva教育版で資料を整え、スマホをリモコン代わりに発表まで仕上げる。</p>
-      </div>
+  <!-- ===== 4講座カード ===== -->
+  <section id="courses" class="max-w-4xl mx-auto px-6 py-16">
+    <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Courses</p>
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">4つの講座</h2>
+    <p class="text-gray-500 mb-10">どの順番で受講しても構いません。興味のある講座だけを選んで参加できます。</p>
+
+    <div class="grid md:grid-cols-2 gap-5">
+      <a href="section1.html" class="card-hover block bg-white border border-gray-100 rounded-2xl p-7">
+        <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">Lecture 01</span>
+        <h3 class="text-2xl font-bold mb-2">Geminiで校務改革</h3>
+        <p class="text-xs text-gray-400 font-bold mb-3">書く・まとめる・伝える</p>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">音声の文字起こしをGeminiで整理し、議事録や連絡文などに書き分けます。</p>
+        <p class="text-xs text-gray-400 mb-5">主なツール: スマートフォン / Gemini</p>
+        <span class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold">講座を見る</span>
+      </a>
+      <a href="section2.html" class="card-hover block bg-white border border-gray-100 rounded-2xl p-7">
+        <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">Lecture 02</span>
+        <h3 class="text-2xl font-bold mb-2">Googleフォームで校務改善</h3>
+        <p class="text-xs text-gray-400 font-bold mb-3">集める・分析する・改善する</p>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">Googleフォームで集めた回答を自動集計し、Geminiで分析・報告書作成まで行います。</p>
+        <p class="text-xs text-gray-400 mb-5">主なツール: Googleフォーム / スプレッドシート</p>
+        <span class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold">講座を見る</span>
+      </a>
+      <a href="section3.html" class="card-hover block bg-white border border-gray-100 rounded-2xl p-7">
+        <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">Lecture 03</span>
+        <h3 class="text-2xl font-bold mb-2">NotebookLMで教材研究・校務改革</h3>
+        <p class="text-xs text-gray-400 font-bold mb-3">読む・深める・教材にする</p>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">信頼できる資料をNotebookLMに読み込ませ、教材研究や資料整理に活用します。</p>
+        <p class="text-xs text-gray-400 mb-5">主なツール: NotebookLM</p>
+        <span class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold">講座を見る</span>
+      </a>
+      <a href="section4.html" class="card-hover block bg-white border border-gray-100 rounded-2xl p-7">
+        <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">Lecture 04</span>
+        <h3 class="text-2xl font-bold mb-2">Canva教育版×AI</h3>
+        <p class="text-xs text-gray-400 font-bold mb-3">整える・魅せる・発表する</p>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">AIで生成したスライドや図解をCanvaで整え、発表まで完成させます。</p>
+        <p class="text-xs text-gray-400 mb-5">主なツール: Canva教育版</p>
+        <span class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold">講座を見る</span>
+      </a>
     </div>
   </section>
 
-  <!-- ===== Workshop Flow (Agenda) ===== -->
-  <section id="agenda" class="max-w-4xl mx-auto px-6 py-20">
-    <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Agenda</p>
-    <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-10 tracking-tight">Workshop Flow</h2>
-
-    <div class="space-y-2">
-      <a href="section1.html" class="flow-item block px-4 py-8">
-        <h3 class="text-2xl md:text-3xl font-bold mb-2 whitespace-nowrap">第1講座: Geminiで校務改革</h3>
-        <p class="text-gray-500 md:text-lg mb-4">Geminiを使って、文書作成・会議記録・面談記録を効率化する。</p>
-        <span class="grad-pill inline-flex items-center gap-2 text-sm font-semibold text-blue-600 rounded-full px-5 py-2"><span class="material-symbols-outlined text-blue-500">diamond</span>話す・書く仕事をAIで軽くする</span>
-      </a>
-      <a href="section2.html" class="flow-item block px-4 py-8">
-        <h3 class="text-2xl md:text-3xl font-bold mb-2 whitespace-nowrap">第2講座: Googleフォームで校務改善</h3>
-        <p class="text-gray-500 md:text-lg mb-4">アンケートから自動集計・分析まで。フォームを「作る」だけで終わらせない。</p>
-        <span class="grad-pill inline-flex items-center gap-2 text-sm font-semibold text-blue-600 rounded-full px-5 py-2"><span class="material-symbols-outlined text-blue-500">fact_check</span>情報を集めて、校務に活かす</span>
-      </a>
-      <a href="section3.html" class="flow-item block px-4 py-8">
-        <h3 class="text-2xl md:text-3xl font-bold mb-2 whitespace-nowrap">第3講座: NotebookLM実践講座</h3>
-        <p class="text-gray-500 md:text-lg mb-4">資料整理・教材研究・研修報告に使う。資料を入れるだけで仕事が進む。</p>
-        <span class="grad-pill inline-flex items-center gap-2 text-sm font-semibold text-blue-600 rounded-full px-5 py-2"><span class="material-symbols-outlined text-blue-500">auto_stories</span>資料を入れるだけで、仕事が進む</span>
-      </a>
-      <a href="section4.html" class="flow-item block px-4 py-8 border-b border-gray-100">
-        <h3 class="text-2xl md:text-3xl font-bold mb-2 whitespace-nowrap">第4講座: NotebookLM × Canva教育版</h3>
-        <p class="text-gray-500 md:text-lg mb-4">AIで教材・プレゼン資料を作り、発表まで仕上げる。最後は10分の完成デモ付き。</p>
-        <span class="grad-pill inline-flex items-center gap-2 text-sm font-semibold text-blue-600 rounded-full px-5 py-2"><span class="material-symbols-outlined text-blue-500">co_present</span>AIで作り、Canvaで伝わる形にする</span>
-      </a>
+  <!-- ===== 4講座の関係 ===== -->
+  <section id="flow" class="max-w-4xl mx-auto px-6 py-16">
+    <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Flow</p>
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">4講座の関係</h2>
+    <p class="text-gray-500 mb-10">4講座は順番に受講する必要はありません。それぞれが独立した講座です。</p>
+    <div class="grid md:grid-cols-4 gap-5">
+      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6 text-center">
+        <div class="avatar text-2xl mx-auto mb-4">💬</div>
+        <h3 class="font-bold mb-1">Gemini</h3>
+        <p class="text-gray-500 text-sm">書く・まとめる</p>
+      </div>
+      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6 text-center">
+        <div class="avatar text-2xl mx-auto mb-4">📋</div>
+        <h3 class="font-bold mb-1">Googleフォーム</h3>
+        <p class="text-gray-500 text-sm">集める・分析する</p>
+      </div>
+      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6 text-center">
+        <div class="avatar text-2xl mx-auto mb-4">📚</div>
+        <h3 class="font-bold mb-1">NotebookLM</h3>
+        <p class="text-gray-500 text-sm">資料を深める</p>
+      </div>
+      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6 text-center">
+        <div class="avatar text-2xl mx-auto mb-4">🎨</div>
+        <h3 class="font-bold mb-1">Canva</h3>
+        <p class="text-gray-500 text-sm">伝わる形に仕上げる</p>
+      </div>
     </div>
   </section>
 
   <!-- ===== 講師紹介 ===== -->
-  <section id="instructor" class="max-w-4xl mx-auto px-6 py-20">
+  <section id="instructor" class="max-w-4xl mx-auto px-6 py-16">
     <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Instructor</p>
-    <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-10 tracking-tight">講師紹介</h2>
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-10 tracking-tight">講師紹介</h2>
 
     <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10">
       <div class="flex flex-col md:flex-row md:items-start gap-8">
-        <img src="images/avatar-illustration.png" alt="和田倫周 プロフィールイラスト" class="w-40 h-40 rounded-full object-cover mx-auto md:mx-0 shrink-0">
+        <img src="images/instructor-illustration.png" alt="和田倫周 プロフィールイラスト" class="w-40 h-40 rounded-full object-cover mx-auto md:mx-0 shrink-0">
         <div>
           <h3 class="text-2xl md:text-3xl font-bold mb-1">和田 倫周 <span class="text-base font-normal text-gray-400">(わだ みちひろ)</span></h3>
           <p class="text-gray-500 text-sm mb-4">鹿児島県立開陽高等学校 定時制課程 進路支援部主任 / 国語科教諭・司書教諭</p>
@@ -174,9 +163,9 @@
   </section>
 
   <!-- ===== 著作 ===== -->
-  <section id="book" class="max-w-4xl mx-auto px-6 py-20">
+  <section id="book" class="max-w-4xl mx-auto px-6 py-16">
     <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Book</p>
-    <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-10 tracking-tight">著作</h2>
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-10 tracking-tight">著作</h2>
 
     <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10">
       <div class="flex flex-col md:flex-row md:items-start gap-8">
@@ -198,27 +187,13 @@
     </div>
   </section>
 
-  <!-- ===== Resources (Tools) ===== -->
-  <section id="resources" class="max-w-4xl mx-auto px-6 py-20">
-    <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Tools</p>
-    <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-10 tracking-tight">研修で使うツール</h2>
-    <div class="grid md:grid-cols-2 gap-4">
-      <a href="https://gemini.google.com/" target="_blank" class="card-hover block bg-white border border-gray-100 rounded-2xl p-6">
-        <h3 class="font-bold mb-2 flex items-center gap-2"><span class="material-symbols-outlined">diamond</span>Gemini</h3>
-        <p class="text-gray-500 text-sm">文書作成、会議記録の要約、連絡文の下書きに。</p>
-      </a>
-      <a href="https://workspace.google.com/products/forms/" target="_blank" class="card-hover block bg-white border border-gray-100 rounded-2xl p-6">
-        <h3 class="font-bold mb-2 flex items-center gap-2"><span class="material-symbols-outlined">fact_check</span>Google Forms</h3>
-        <p class="text-gray-500 text-sm">アンケートの作成から自動集計・分析まで。</p>
-      </a>
-      <a href="https://notebooklm.google.com/" target="_blank" class="card-hover block bg-white border border-gray-100 rounded-2xl p-6">
-        <h3 class="font-bold mb-2 flex items-center gap-2"><span class="material-symbols-outlined">auto_stories</span>NotebookLM</h3>
-        <p class="text-gray-500 text-sm">資料の要約、教材研究、研修報告書の作成に。</p>
-      </a>
-      <a href="https://www.canva.com/education/" target="_blank" class="card-hover block bg-white border border-gray-100 rounded-2xl p-6">
-        <h3 class="font-bold mb-2 flex items-center gap-2"><span class="material-symbols-outlined">co_present</span>Canva for Education</h3>
-        <p class="text-gray-500 text-sm">教材・プレゼン資料を整え、発表まで仕上げる。</p>
-      </a>
+  <!-- ===== 個人情報の取扱い ===== -->
+  <section id="privacy" class="max-w-4xl mx-auto px-6 py-16">
+    <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Privacy</p>
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight">個人情報の取扱い</h2>
+    <div class="caution-card">
+      <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+      <p>個人情報を含む資料を生成AIへ入力しないでください。児童生徒名、保護者名、住所、電話番号、成績、健康情報などは、番号・記号・仮名に置き換えてください。AIが生成した内容は、そのまま使用せず、必ず教職員が内容を確認してください。</p>
     </div>
   </section>
 

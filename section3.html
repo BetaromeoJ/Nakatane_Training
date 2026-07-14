@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第3講座: NotebookLM実践講座 | 中種子町情報教育部会研修会</title>
+<title>第3講座: NotebookLMで教材研究・校務改革 | 中種子町情報教育部会研修会</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Material+Symbols+Outlined" rel="stylesheet">
 <link rel="stylesheet" href="assets/tailwind.css">
@@ -12,101 +12,307 @@
 <body class="text-ink antialiased">
 
   <div id="splash" class="splash-overlay">
-    <div class="splash-text">第3講座<span class="splash-sub">NotebookLM実践講座</span></div>
+    <div class="splash-text">第3講座<span class="splash-sub">NotebookLMで教材研究・校務改革</span></div>
   </div>
 
-  <button id="menuBtn" aria-label="Menu" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
+  <div id="copy-announcer" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
+
+  <button id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
     <span class="block w-5 h-0.5 bg-ink"></span>
     <span class="block w-5 h-0.5 bg-ink"></span>
     <span class="block w-5 h-0.5 bg-ink"></span>
   </button>
 
-  <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto">
-    <button id="closeBtn" class="mb-6 text-2xl leading-none">&times;</button>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">Workshop Flow</h3>
+  <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto" aria-label="サイト内メニュー">
+    <button id="closeBtn" aria-label="メニューを閉じる" class="mb-6 text-2xl leading-none">&times;</button>
     <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="index.html" class="flex justify-between py-1"><span>Top</span><span class="text-gray-400">トップページ</span></a></li>
-      <li><a href="section1.html" class="flex justify-between py-1"><span>01</span><span class="text-gray-400">Geminiで校務改革</span></a></li>
-      <li><a href="section2.html" class="flex justify-between py-1"><span>02</span><span class="text-gray-400">Googleフォームで校務改善</span></a></li>
-      <li><a href="section3.html" class="flex justify-between py-1"><span>03</span><span class="text-gray-400">NotebookLM実践講座</span></a></li>
-      <li><a href="section4.html" class="flex justify-between py-1"><span>04</span><span class="text-gray-400">NotebookLM×Canva教育版</span></a></li>
+      <li><a href="index.html" class="flex justify-between py-1"><span>トップ</span></a></li>
+      <li><a href="section1.html" class="flex justify-between py-1"><span>第1講座</span><span class="text-gray-400">Gemini</span></a></li>
+      <li><a href="section2.html" class="flex justify-between py-1"><span>第2講座</span><span class="text-gray-400">Googleフォーム</span></a></li>
+      <li><a href="section3.html" aria-current="page" class="flex justify-between py-1 font-bold text-blue-600"><span>第3講座</span><span>NotebookLM</span></a></li>
+      <li><a href="section4.html" class="flex justify-between py-1"><span>第4講座</span><span class="text-gray-400">Canva</span></a></li>
     </ul>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">About</h3>
-    <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="index.html#instructor" class="flex justify-between py-1"><span>Instructor</span><span class="text-gray-400">講師紹介</span></a></li>
-      <li><a href="index.html#book" class="flex justify-between py-1"><span>Book</span><span class="text-gray-400">著作</span></a></li>
-    </ul>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">Tools (External)</h3>
-    <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="https://gemini.google.com/" target="_blank" class="flex justify-between py-1"><span>Gemini</span><span class="text-gray-400">Start Chat</span></a></li>
-      <li><a href="https://workspace.google.com/products/forms/" target="_blank" class="flex justify-between py-1"><span>Google Forms</span><span class="text-gray-400">アンケート</span></a></li>
-      <li><a href="https://notebooklm.google.com/" target="_blank" class="flex justify-between py-1"><span>NotebookLM</span><span class="text-gray-400">Start Research</span></a></li>
-      <li><a href="https://www.canva.com/education/" target="_blank" class="flex justify-between py-1"><span>Canva for Education</span><span class="text-gray-400">教材・発表</span></a></li>
-    </ul>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">SNS</h3>
-    <ul class="space-y-2 text-sm">
-      <li><a href="https://www.facebook.com/wowwdarling/" target="_blank" class="flex justify-between py-1"><span>Facebook</span><span class="text-gray-400">@wowwdarling</span></a></li>
-      <li><a href="https://www.instagram.com/wowwdarling/" target="_blank" class="flex justify-between py-1"><span>Instagram</span><span class="text-gray-400">@wowwdarling</span></a></li>
+    <ul class="mb-8 space-y-2 text-sm border-t border-gray-100 pt-6">
+      <li><a href="#lecture3-material" class="flex justify-between py-1"><span>配布資料</span></a></li>
+      <li><a href="#lecture3-video" class="flex justify-between py-1"><span>復習動画</span></a></li>
+      <li><a href="#lecture3-survey" class="flex justify-between py-1"><span>アンケート</span></a></li>
+      <li><a href="index.html#privacy" class="flex justify-between py-1"><span>個人情報の取扱い</span></a></li>
     </ul>
   </nav>
   <div id="overlay" class="fixed inset-0 bg-black/30 z-40 hidden"></div>
 
   <main class="max-w-4xl mx-auto px-6">
-    <header class="relative pt-40 pb-16">
-      <span class="bg-number">03</span>
+
+    <header class="relative pt-40 pb-10">
+      <span class="bg-number" aria-hidden="true">03</span>
       <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Lecture 03</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight whitespace-nowrap">NotebookLM実践講座</h1>
-      <p class="text-gray-500 text-lg">資料を読み込ませるだけで、教材研究や報告書づくりが進む。</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 tracking-tight whitespace-nowrap">NotebookLMで教材研究・校務改革</h1>
+      <p class="text-lg md:text-xl text-gray-700 font-bold mb-2">資料を読む時間を減らし、考える時間を増やす</p>
+      <p class="text-blue-600 font-bold mb-8">資料を入れると、教材研究が動き出す。</p>
     </header>
 
-    <section class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-10">
+    <section class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-6">
       <h2 class="text-blue-600 text-xl font-bold mb-4">ねらい</h2>
-      <p class="text-gray-600 leading-relaxed mb-6">NotebookLMに授業資料や研修資料を読み込ませ、要約・Q&A・音声解説などの機能を活用する。教材研究や研修報告書の作成にかかる時間を大きく減らす方法を体験する。</p>
+      <p class="text-gray-600 leading-relaxed mb-6">NotebookLMへ信頼できる資料を取り込み、資料に基づいて質問・要約・教材研究を行います。特に、教材研究、インフォグラフィック、スライド生成を中心に、学校ですぐ使える活用法を体験します。</p>
       <div class="hidden-theme rounded-xl p-5">
         <p class="text-xs font-bold text-gray-400 uppercase mb-2">キーワード</p>
-        <p class="font-bold text-sm">資料の要約 / ソースに基づく回答 / 音声解説</p>
+        <p class="font-bold text-sm">NotebookLM / ソース / 教材研究 / インフォグラフィック / スライド生成</p>
+      </div>
+    </section>
+
+    <nav class="quicknav mb-10" aria-label="第3講座 ページ内メニュー">
+      <a href="#lecture3-schedule" class="quicknav-btn" aria-label="今日の流れへ移動"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>今日の流れ</a>
+      <a href="#lecture3-practice" class="quicknav-btn" aria-label="演習へ移動"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span>演習へ</a>
+      <a href="#lecture3-prompts" class="quicknav-btn" aria-label="プロンプト集へ移動"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span>プロンプト集</a>
+    </nav>
+
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">今日できるようになること</h2>
+      <ul class="space-y-3">
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">NotebookLMへ資料を取り込む</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">資料を根拠に質問する</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">教材研究に活用する</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">インフォグラフィックを生成する</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">スライドを生成する</span></li>
+      </ul>
+    </section>
+
+    <section id="lecture3-schedule" class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">75分の流れ</h2>
+      <div class="space-y-3">
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">0〜5分</span><span class="text-gray-600">NotebookLMとGeminiの違い</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">5〜15分</span><span class="text-gray-600">資料の取り込み</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">15〜25分</span><span class="text-gray-600">資料への質問・要約</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">25〜35分</span><span class="text-gray-600">教材研究の実演</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">35〜50分</span><span class="text-gray-600">インフォグラフィック・スライド生成</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">50〜60分</span><span class="text-gray-600">参加者による演習</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">60〜70分</span><span class="text-gray-600">校務・授業での活用事例</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">70〜75分</span><span class="text-gray-600">講座アンケート</span></div>
+      </div>
+    </section>
+
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">使用するツール</h2>
+      <ul class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">NotebookLM</li>
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">Googleアカウント</li>
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">PDF / Googleドキュメント等</li>
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">Webブラウザ</li>
+      </ul>
+    </section>
+
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">事前準備</h2>
+      <ul class="space-y-3 mb-10">
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">PDFまたはGoogleドキュメントを1〜3点(例: 教材、学習指導要領、校内研修資料、教育委員会通知)</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">個人情報を含む資料は匿名化してから利用する</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">資料がなくてもサンプルで参加可能</span></li>
+      </ul>
+
+      <h3 class="font-bold text-lg mb-4">使用できる主なソース</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">PDF</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">Googleドキュメント</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">Googleスライド</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">Webページ</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">YouTube</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">コピーしたテキスト</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">音声ファイル</div>
       </div>
     </section>
 
     <section class="mb-10">
-      <h2 class="text-blue-600 text-xl font-bold mb-6">主な内容</h2>
-      <ul class="space-y-4">
-        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">NotebookLMの基本操作と、資料(ソース)の追加方法</span></li>
-        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">資料をもとにした要約・質問応答の使い方</span></li>
-        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">教材研究・研修報告書づくりへの応用例</span></li>
-      </ul>
+      <div class="caution-card">
+        <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+        <p>個人情報を含む資料を生成AIへ入力しないでください。児童生徒名、保護者名、住所、電話番号、成績、健康情報などは、番号・記号・仮名に置き換えてください。AIが生成した内容は、そのまま使用せず、必ず教職員が内容を確認してください。</p>
+      </div>
     </section>
 
-    <section class="mb-16">
-      <h2 class="text-blue-600 text-xl font-bold mb-6">やってみよう!</h2>
+    <section id="lecture3-practice" class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">演習手順</h2>
       <div class="space-y-6">
-        <div class="flex gap-5">
-          <span class="step-num">01</span>
-          <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">資料をアップロードする</h3>
-            <p class="text-gray-600 mb-3">手元のPDFや文書を1つ、ソースとして読み込ませてみる。</p>
-            <a href="https://notebooklm.google.com/" target="_blank" class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold hover:bg-gray-800 transition">NotebookLMを開く</a>
+        <div class="flex gap-5"><span class="step-num">01</span><div><h3 class="text-xl font-bold mb-1">新しいノートブックを作る</h3><a href="https://notebooklm.google.com/" target="_blank" class="btn-tap inline-block mt-2 bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold hover:bg-gray-800 transition">NotebookLMを開く</a></div></div>
+        <div class="flex gap-5"><span class="step-num">02</span><div><h3 class="text-xl font-bold mb-1">資料を1〜3点追加する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">03</span><div><h3 class="text-xl font-bold mb-1">ソースの内容を確認する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">04</span><div><h3 class="text-xl font-bold mb-1">資料について質問する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">05</span><div><h3 class="text-xl font-bold mb-1">回答の根拠を確認する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">06</span><div><h3 class="text-xl font-bold mb-1">インフォグラフィックまたはスライドを生成する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">07</span><div><h3 class="text-xl font-bold mb-1">必要な回答をメモへ保存する</h3></div></div>
+      </div>
+    </section>
+
+    <section id="lecture3-prompts" class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">コピーして使えるプロンプト</h2>
+
+      <div class="space-y-5">
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <div>
+              <h4>1. 長い資料を短時間で理解する</h4>
+              <p class="prompt-scene">登録した資料のポイントを、短時間で把握できるように整理します。</p>
+            </div>
+            <button class="copy-btn" data-copy-target="#p3-1" aria-label="長い資料を短時間で理解するプロンプトをコピー"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span><span class="copy-label">コピー</span></button>
           </div>
+          <div id="p3-1" class="prompt-body">この資料について、学校教職員が短時間で理解できるように整理してください。
+
+次の項目に分けてください。
+1. 資料の目的
+2. 重要なポイント
+3. 教職員が行う必要があること
+4. 期限・注意事項
+5. 校内で共有すべき内容
+6. 原文で確認した方がよい箇所
+
+根拠となるソースを示してください。</div>
         </div>
-        <div class="flex gap-5">
-          <span class="step-num">02</span>
-          <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">要約と質問をしてみる</h3>
-            <p class="text-gray-600">「この資料のポイントを3つ」など、具体的に質問してみる。</p>
+
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <div>
+              <h4>2. 教材研究</h4>
+              <p class="prompt-scene">登録した学習指導要領・教材文・指導資料から教材研究を支援します。</p>
+            </div>
+            <button class="copy-btn" data-copy-target="#p3-2" aria-label="教材研究のプロンプトをコピー"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span><span class="copy-label">コピー</span></button>
           </div>
+          <div id="p3-2" class="prompt-body">登録した学習指導要領、教材文、指導資料をもとに、この単元の教材研究を支援してください。
+
+次の項目を整理してください。
+1. 単元の目標
+2. 身に付けさせたい力
+3. 児童生徒がつまずきそうな点
+4. 単元を貫く問い
+5. 本時の主発問候補
+6. 予想される児童生徒の反応
+7. 学習を深めるための支援
+8. 振り返りの視点
+
+資料にない内容は推測と明示してください。</div>
         </div>
-        <div class="flex gap-5">
-          <span class="step-num">03</span>
-          <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">音声解説を聞いてみる</h3>
-            <p class="text-gray-600">音声解説機能を使い、資料を「聞いて」理解する体験をする。</p>
+
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <div>
+              <h4>3. 発問を考える</h4>
+              <p class="prompt-scene">児童生徒の思考を深める発問を、資料に基づいて提案します。</p>
+            </div>
+            <button class="copy-btn" data-copy-target="#p3-3" aria-label="発問を考えるプロンプトをコピー"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span><span class="copy-label">コピー</span></button>
           </div>
+          <div id="p3-3" class="prompt-body">この教材について、児童生徒の思考を深める発問を5つ提案してください。
+
+各発問について、次の内容も示してください。
+・発問の意図
+・予想される反応
+・発問のメリット
+・注意点
+・どの資料を根拠にしたか</div>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <div>
+              <h4>4. 研修報告書を作る</h4>
+              <p class="prompt-scene">研修資料と振り返りメモから、校内共有用の報告書を作成します。</p>
+            </div>
+            <button class="copy-btn" data-copy-target="#p3-4" aria-label="研修報告書のプロンプトをコピー"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span><span class="copy-label">コピー</span></button>
+          </div>
+          <div id="p3-4" class="prompt-body">登録した研修資料と振り返りメモをもとに、校内で共有する研修報告書を作成してください。
+
+構成:
+1. 研修の概要
+2. 主な学び
+3. 学校で活用できること
+4. 今後試したいこと
+5. 職員に共有したいポイント</div>
         </div>
       </div>
     </section>
 
-    <div class="flex justify-between items-center border-t border-gray-100 pt-8 pb-20 text-sm">
-      <a href="section2.html" class="text-gray-500 hover:text-ink">&larr; 第2講座へ戻る</a>
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">スタジオ機能</h2>
+      <div class="grid md:grid-cols-3 gap-5 mb-6">
+        <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6">
+          <h3 class="font-bold mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-blue-500" aria-hidden="true">insights</span>インフォグラフィック</h3>
+          <p class="text-gray-500 text-sm">長い資料を1枚で理解する</p>
+        </div>
+        <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6">
+          <h3 class="font-bold mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-blue-500" aria-hidden="true">slideshow</span>スライド</h3>
+          <p class="text-gray-500 text-sm">授業・研修資料のたたき台を作る</p>
+        </div>
+        <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6">
+          <h3 class="font-bold mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-blue-500" aria-hidden="true">schema</span>マインドマップ</h3>
+          <p class="text-gray-500 text-sm">教材や資料の構造を把握する</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-400 mb-2 font-bold">その他の機能</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="grad-pill text-xs font-semibold text-blue-600 rounded-full px-4 py-1.5">音声概要</span>
+        <span class="grad-pill text-xs font-semibold text-blue-600 rounded-full px-4 py-1.5">動画概要</span>
+        <span class="grad-pill text-xs font-semibold text-blue-600 rounded-full px-4 py-1.5">クイズ</span>
+        <span class="grad-pill text-xs font-semibold text-blue-600 rounded-full px-4 py-1.5">フラッシュカード</span>
+        <span class="grad-pill text-xs font-semibold text-blue-600 rounded-full px-4 py-1.5">レポート</span>
+      </div>
+    </section>
+
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">NotebookLM利用時のポイント</h2>
+      <ul class="space-y-3">
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">ソースを増やしすぎない</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">生成時に使うソースを選択する</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">回答の根拠を確認する</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">重要な回答はメモへ保存する</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">生成物は必ず教職員が確認する</span></li>
+      </ul>
+    </section>
+
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">注意事項</h2>
+      <div class="caution-card">
+        <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+        <p>個人情報を含む資料を生成AIへ入力しないでください。児童生徒名、保護者名、住所、電話番号、成績、健康情報などは、番号・記号・仮名に置き換えてください。AIが生成した内容は、そのまま使用せず、必ず教職員が内容を確認してください。</p>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">講座のまとめ</h2>
+      <div class="hidden-theme rounded-2xl p-8 text-center text-gray-700 font-bold leading-loose">
+        信頼できる資料を準備する &rarr; NotebookLMへ追加する &rarr; 資料について質問する &rarr; 教材研究・要約を行う &rarr; スライドや図解へ変換する &rarr; 授業・校務に活用する
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">資料・復習・アンケート</h2>
+      <div class="grid md:grid-cols-3 gap-5 mb-8">
+        <div id="lecture3-material" class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">description</span>
+          <h3>配布資料</h3>
+          <p>当日のスライドや配布用資料を確認できます。</p>
+          <a href="#lecture3-material" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">資料を開く</a>
+        </div>
+        <div id="lecture3-video" class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">play_circle</span>
+          <h3>復習動画</h3>
+          <p>GoogleスライドをGoogle Vidsで動画化した復習用コンテンツです。</p>
+          <a href="#lecture3-video" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">動画を見る</a>
+        </div>
+        <div id="lecture3-survey" class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">assignment</span>
+          <h3>講座アンケート</h3>
+          <p>研修改善のため、5分程度でご回答ください。</p>
+          <a href="#lecture3-survey" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">アンケートに回答する</a>
+        </div>
+      </div>
+
+      <div class="video-frame">
+        <div class="video-placeholder">復習動画は研修後に公開します。</div>
+        <!-- 動画公開時は以下のiframeのコメントを外し、src を差し替えてください
+        <iframe src="" title="第3講座 復習動画" allowfullscreen></iframe>
+        -->
+      </div>
+    </section>
+
+    <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">
+      <a href="index.html" class="text-gray-500 hover:text-ink">&larr; トップへ戻る</a>
+      <a href="section2.html" class="text-gray-500 hover:text-ink">&larr; 第2講座へ</a>
       <a href="section4.html" class="font-bold hover:text-blue-600">第4講座へ &rarr;</a>
     </div>
   </main>

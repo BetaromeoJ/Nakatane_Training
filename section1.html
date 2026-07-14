@@ -15,98 +15,334 @@
     <div class="splash-text">第1講座<span class="splash-sub">Geminiで校務改革</span></div>
   </div>
 
-  <button id="menuBtn" aria-label="Menu" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
+  <div id="copy-announcer" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
+
+  <!-- ===== Floating menu button ===== -->
+  <button id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
     <span class="block w-5 h-0.5 bg-ink"></span>
     <span class="block w-5 h-0.5 bg-ink"></span>
     <span class="block w-5 h-0.5 bg-ink"></span>
   </button>
 
-  <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto">
-    <button id="closeBtn" class="mb-6 text-2xl leading-none">&times;</button>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">Workshop Flow</h3>
+  <!-- ===== Drawer Menu ===== -->
+  <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto" aria-label="サイト内メニュー">
+    <button id="closeBtn" aria-label="メニューを閉じる" class="mb-6 text-2xl leading-none">&times;</button>
     <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="index.html" class="flex justify-between py-1"><span>Top</span><span class="text-gray-400">トップページ</span></a></li>
-      <li><a href="section1.html" class="flex justify-between py-1"><span>01</span><span class="text-gray-400">Geminiで校務改革</span></a></li>
-      <li><a href="section2.html" class="flex justify-between py-1"><span>02</span><span class="text-gray-400">Googleフォームで校務改善</span></a></li>
-      <li><a href="section3.html" class="flex justify-between py-1"><span>03</span><span class="text-gray-400">NotebookLM実践講座</span></a></li>
-      <li><a href="section4.html" class="flex justify-between py-1"><span>04</span><span class="text-gray-400">NotebookLM×Canva教育版</span></a></li>
+      <li><a href="index.html" class="flex justify-between py-1"><span>トップ</span></a></li>
+      <li><a href="section1.html" aria-current="page" class="flex justify-between py-1 font-bold text-blue-600"><span>第1講座</span><span>Gemini</span></a></li>
+      <li><a href="section2.html" class="flex justify-between py-1"><span>第2講座</span><span class="text-gray-400">Googleフォーム</span></a></li>
+      <li><a href="section3.html" class="flex justify-between py-1"><span>第3講座</span><span class="text-gray-400">NotebookLM</span></a></li>
+      <li><a href="section4.html" class="flex justify-between py-1"><span>第4講座</span><span class="text-gray-400">Canva</span></a></li>
     </ul>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">About</h3>
-    <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="index.html#instructor" class="flex justify-between py-1"><span>Instructor</span><span class="text-gray-400">講師紹介</span></a></li>
-      <li><a href="index.html#book" class="flex justify-between py-1"><span>Book</span><span class="text-gray-400">著作</span></a></li>
-    </ul>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">Tools (External)</h3>
-    <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="https://gemini.google.com/" target="_blank" class="flex justify-between py-1"><span>Gemini</span><span class="text-gray-400">Start Chat</span></a></li>
-      <li><a href="https://workspace.google.com/products/forms/" target="_blank" class="flex justify-between py-1"><span>Google Forms</span><span class="text-gray-400">アンケート</span></a></li>
-      <li><a href="https://notebooklm.google.com/" target="_blank" class="flex justify-between py-1"><span>NotebookLM</span><span class="text-gray-400">Start Research</span></a></li>
-      <li><a href="https://www.canva.com/education/" target="_blank" class="flex justify-between py-1"><span>Canva for Education</span><span class="text-gray-400">教材・発表</span></a></li>
-    </ul>
-    <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">SNS</h3>
-    <ul class="space-y-2 text-sm">
-      <li><a href="https://www.facebook.com/wowwdarling/" target="_blank" class="flex justify-between py-1"><span>Facebook</span><span class="text-gray-400">@wowwdarling</span></a></li>
-      <li><a href="https://www.instagram.com/wowwdarling/" target="_blank" class="flex justify-between py-1"><span>Instagram</span><span class="text-gray-400">@wowwdarling</span></a></li>
+    <ul class="mb-8 space-y-2 text-sm border-t border-gray-100 pt-6">
+      <li><a href="#lecture1-material" class="flex justify-between py-1"><span>配布資料</span></a></li>
+      <li><a href="#lecture1-video" class="flex justify-between py-1"><span>復習動画</span></a></li>
+      <li><a href="#lecture1-survey" class="flex justify-between py-1"><span>アンケート</span></a></li>
+      <li><a href="index.html#privacy" class="flex justify-between py-1"><span>個人情報の取扱い</span></a></li>
     </ul>
   </nav>
   <div id="overlay" class="fixed inset-0 bg-black/30 z-40 hidden"></div>
 
   <main class="max-w-4xl mx-auto px-6">
-    <header class="relative pt-40 pb-16">
-      <span class="bg-number">01</span>
+
+    <!-- 1〜4: 講座番号・タイトル・サブタイトル・キャッチコピー -->
+    <header class="relative pt-40 pb-10">
+      <span class="bg-number" aria-hidden="true">01</span>
       <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Lecture 01</p>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight whitespace-nowrap">Geminiで校務改革</h1>
-      <p class="text-gray-500 text-lg">文書作成・会議記録・面談記録を、AIとの対話で効率化する。</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 tracking-tight whitespace-nowrap">Geminiで校務改革</h1>
+      <p class="text-lg md:text-xl text-gray-700 font-bold mb-2">生成AIで「書く・まとめる・伝える」をもっと楽に</p>
+      <p class="text-blue-600 font-bold mb-8">話した内容を、相手に伝わる文章へ。</p>
     </header>
 
-    <section class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-10">
+    <!-- 5〜6: ねらい・キーワード -->
+    <section class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-6">
       <h2 class="text-blue-600 text-xl font-bold mb-4">ねらい</h2>
-      <p class="text-gray-600 leading-relaxed mb-6">日々の校務にある「話す・書く」仕事を、Geminiとの対話で軽くする。通知表の所見、保護者向け連絡文、会議録の要約など、時間がかかる文書作成をAIと一緒に進める感覚をつかむ。</p>
+      <p class="text-gray-600 leading-relaxed mb-6">日々の校務にある「話す・書く・まとめる」仕事を、Geminiとの対話で軽くします。スマートフォンで録音・文字起こしした内容をGeminiに貼り付け、同じ内容から、校内向け議事録、保護者向け連絡文、管理職向け報告、自分用メモを作り分ける方法を体験します。</p>
       <div class="hidden-theme rounded-xl p-5">
         <p class="text-xs font-bold text-gray-400 uppercase mb-2">キーワード</p>
-        <p class="font-bold text-sm">対話型AI / 文書作成の効率化 / プロンプトの工夫</p>
+        <p class="font-bold text-sm">音声の文字起こし / Gemini / 校務文書 / プロンプト / 個人情報保護</p>
       </div>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-blue-600 text-xl font-bold mb-6">主な内容</h2>
-      <ul class="space-y-4">
-        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">Geminiの基本的な使い方と、教育現場での活用場面</span></li>
-        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">連絡文・所見・会議記録など、文書別のプロンプト例</span></li>
-        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-1">radio_button_unchecked</span><span class="text-gray-600">個人情報の扱いと、安全に使うための注意点</span></li>
+    <!-- 7: ページ内移動ボタン -->
+    <nav class="quicknav mb-10" aria-label="第1講座 ページ内メニュー">
+      <a href="#lecture1-schedule" class="quicknav-btn" aria-label="今日の流れへ移動"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>今日の流れ</a>
+      <a href="#lecture1-practice" class="quicknav-btn" aria-label="演習へ移動"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span>演習へ</a>
+      <a href="#lecture1-prompts" class="quicknav-btn" aria-label="プロンプト集へ移動"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span>プロンプト集</a>
+    </nav>
+
+    <!-- 8: 今日できるようになること -->
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">今日できるようになること</h2>
+      <ul class="space-y-3">
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">スマートフォンで音声を記録する</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">音声を文字起こしする</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">文字起こしをGeminiへ貼り付ける</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">目的と相手に合わせて文章を書き分ける</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">check_circle</span><span class="text-gray-600">AIが生成した文章を修正して使う</span></li>
       </ul>
     </section>
 
-    <section class="mb-16">
-      <h2 class="text-blue-600 text-xl font-bold mb-6">やってみよう!</h2>
+    <!-- 9: 75分の流れ -->
+    <section id="lecture1-schedule" class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">75分の流れ</h2>
+      <div class="space-y-3">
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">0〜5分</span><span class="text-gray-600">導入・本日のゴール</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">5〜15分</span><span class="text-gray-600">端末別の録音・文字起こし方法</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">15〜25分</span><span class="text-gray-600">文字起こしをGeminiへ貼り付ける実演</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">25〜40分</span><span class="text-gray-600">同じ文字起こしから4種類の文章を生成</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">40〜55分</span><span class="text-gray-600">参加者による演習</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">55〜65分</span><span class="text-gray-600">学校ですぐ使えるプロンプト紹介</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">65〜70分</span><span class="text-gray-600">活用場面と注意点</span></div>
+        <div class="flow-item flex gap-4 px-4 py-4 rounded-xl"><span class="font-bold text-blue-600 w-20 shrink-0">70〜75分</span><span class="text-gray-600">講座アンケート</span></div>
+      </div>
+    </section>
+
+    <!-- 10: 使用するツール -->
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">使用するツール</h2>
+      <ul class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">スマートフォン</li>
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">標準の録音アプリ</li>
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">Gemini</li>
+        <li class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">Webブラウザ</li>
+      </ul>
+    </section>
+
+    <!-- 11: 事前準備 -->
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">事前準備</h2>
+      <ul class="space-y-3 mb-10">
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">Googleアカウントへログインできる状態</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">スマートフォン</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">可能であれば、個人情報を除いた2〜3分程度の文字起こし</span></li>
+        <li class="flex gap-3"><span class="material-symbols-outlined text-blue-500 mt-0.5" aria-hidden="true">radio_button_unchecked</span><span class="text-gray-600">文字起こしがない場合は当日用サンプルを使用可能</span></li>
+      </ul>
+
+      <h3 class="font-bold text-lg mb-4">端末別のおすすめ運用</h3>
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="bg-white border border-gray-100 rounded-xl p-5">
+          <p class="font-bold mb-2">iPhone</p>
+          <p class="text-sm text-gray-600 leading-relaxed">ボイスメモ &rarr; 文字起こし &rarr; テキストをコピー &rarr; Geminiへ貼り付け</p>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-xl p-5">
+          <p class="font-bold mb-2">Pixel</p>
+          <p class="text-sm text-gray-600 leading-relaxed">Googleレコーダー &rarr; 文字起こし &rarr; テキストをコピー &rarr; Geminiへ貼り付け</p>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-xl p-5">
+          <p class="font-bold mb-2">その他のAndroid</p>
+          <p class="text-sm text-gray-600 leading-relaxed">標準の録音アプリ &rarr; 文字起こし機能があれば利用 &rarr; テキストをコピー &rarr; Geminiへ貼り付け</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-400 mt-4">補足: 端末によって録音・文字起こしの方法は異なりますが、文字になった後の流れは共通です。</p>
+    </section>
+
+    <!-- 個人情報・生成AI利用の注意カード(演習前) -->
+    <section class="mb-10">
+      <div class="caution-card">
+        <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+        <p>個人情報を含む資料を生成AIへ入力しないでください。児童生徒名、保護者名、住所、電話番号、成績、健康情報などは、番号・記号・仮名に置き換えてください。AIが生成した内容は、そのまま使用せず、必ず教職員が内容を確認してください。</p>
+      </div>
+    </section>
+
+    <!-- 12: 演習手順 -->
+    <section id="lecture1-practice" class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">演習手順</h2>
       <div class="space-y-6">
-        <div class="flex gap-5">
-          <span class="step-num">01</span>
-          <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">Geminiにアクセスする</h3>
-            <p class="text-gray-600 mb-3">Googleアカウントでログインし、チャット画面を開く。</p>
-            <a href="https://gemini.google.com/" target="_blank" class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold hover:bg-gray-800 transition">Geminiを開く</a>
+        <div class="flex gap-5"><span class="step-num">01</span><div><h3 class="text-xl font-bold mb-1">スマートフォンで短い会話を録音する</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">02</span><div><h3 class="text-xl font-bold mb-1">録音内容を文字起こしする</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">03</span><div><h3 class="text-xl font-bold mb-1">文字起こしをコピーする</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">04</span><div><h3 class="text-xl font-bold mb-1">Geminiを開く</h3><a href="https://gemini.google.com/" target="_blank" class="btn-tap inline-block mt-2 bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold hover:bg-gray-800 transition">Geminiを開く</a></div></div>
+        <div class="flex gap-5"><span class="step-num">05</span><div><h3 class="text-xl font-bold mb-1">文字起こしとプロンプトを貼り付ける</h3></div></div>
+        <div class="flex gap-5"><span class="step-num">06</span><div><h3 class="text-xl font-bold mb-1">生成された文章を確認・修正する</h3></div></div>
+      </div>
+    </section>
+
+    <!-- 13: コピーして使えるプロンプト -->
+    <section id="lecture1-prompts" class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">コピーして使えるプロンプト</h2>
+
+      <div class="space-y-5">
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <div>
+              <h4>1. 校内向け議事録</h4>
+              <p class="prompt-scene">会議・教育相談の文字起こしを、共有用の議事録に整理します。</p>
+            </div>
+            <button class="copy-btn" data-copy-target="#p1-1" aria-label="校内向け議事録のプロンプトをコピー"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span><span class="copy-label">コピー</span></button>
           </div>
+          <div id="p1-1" class="prompt-body">以下は、会議または教育相談の文字起こしです。
+内容を校内で共有する議事録として整理してください。
+
+次の項目に分けてください。
+1. 話し合った内容
+2. 決定事項
+3. 確認事項
+4. 担当者
+5. 期限
+6. 今後の対応
+
+文字起こしに含まれていない情報を推測して追加しないでください。
+
+【ここに文字起こしを貼り付けます】</div>
         </div>
-        <div class="flex gap-5">
-          <span class="step-num">02</span>
-          <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">連絡文の下書きを頼む</h3>
-            <p class="text-gray-600">「保護者向けに、行事延期のお知らせを丁寧な文章で」など、具体的に依頼してみる。</p>
+
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <div>
+              <h4>2. 保護者向け連絡文</h4>
+              <p class="prompt-scene">面談・教育相談の内容から、保護者へ送る連絡文を作成します。</p>
+            </div>
+            <button class="copy-btn" data-copy-target="#p1-2" aria-label="保護者向け連絡文のプロンプトをコピー"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span><span class="copy-label">コピー</span></button>
           </div>
+          <div id="p1-2" class="prompt-body">以下は、面談または教育相談の文字起こしです。
+内容をもとに、保護者へ送る連絡文を作成してください。
+
+条件:
+・専門用語を避ける
+・安心感が伝わる表現にする
+・学校と家庭が協力して支援する姿勢を示す
+・断定的な表現を避ける
+・300字程度にまとめる
+・個人情報や不要な内容は記載しない
+
+【ここに文字起こしを貼り付けます】</div>
         </div>
-        <div class="flex gap-5">
-          <span class="step-num">03</span>
-          <div>
-            <h3 class="text-xl md:text-2xl font-bold mb-2">出てきた文章を手直しする</h3>
-            <p class="text-gray-600">「もう少し短く」「もっと柔らかい表現に」と伝えて、自分らしい文章に調整する。</p>
+
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <div>
+              <h4>3. 管理職向け報告</h4>
+              <p class="prompt-scene">校長・教頭へ報告するための簡潔な文書を作成します。</p>
+            </div>
+            <button class="copy-btn" data-copy-target="#p1-3" aria-label="管理職向け報告のプロンプトをコピー"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span><span class="copy-label">コピー</span></button>
+          </div>
+          <div id="p1-3" class="prompt-body">以下は、会議または教育相談の文字起こしです。
+校長・教頭へ報告するための文書として、簡潔に整理してください。
+
+次の項目に分けてください。
+1. 概要
+2. 現在の状況
+3. これまでの対応
+4. 今後必要な対応
+5. 管理職に確認・判断してほしいこと
+
+事実と推測を分け、文字起こしにない情報は追加しないでください。
+
+【ここに文字起こしを貼り付けます】</div>
+          <p class="prompt-note">事実と推測を分けて記載するよう、生成後に必ず確認してください。</p>
+        </div>
+
+        <div class="prompt-card">
+          <div class="prompt-card-head">
+            <div>
+              <h4>4. 自分用メモ</h4>
+              <p class="prompt-scene">担任が後日見返すための、短い振り返りメモを作ります。</p>
+            </div>
+            <button class="copy-btn" data-copy-target="#p1-4" aria-label="自分用メモのプロンプトをコピー"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span><span class="copy-label">コピー</span></button>
+          </div>
+          <div id="p1-4" class="prompt-body">以下の文字起こしを、担任が後日見返すためのメモにしてください。
+
+次の内容を箇条書きで整理してください。
+・重要な発言
+・確認したこと
+・今後行うこと
+・次回確認すること
+・期限があるもの
+
+短く、すぐに読み返せる形にしてください。
+
+【ここに文字起こしを貼り付けます】</div>
+        </div>
+      </div>
+
+      <div class="accordion mt-6">
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="p1-extra">
+            その他のプロンプト例(学級通信・通知文など)
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="p1-extra" class="accordion-panel">
+            <ul class="space-y-2">
+              <li>・学級通信作成</li>
+              <li>・通知文作成</li>
+              <li>・校内研修の要約</li>
+              <li>・PTA会議録</li>
+              <li>・進路面談記録</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="flex justify-between items-center border-t border-gray-100 pt-8 pb-20 text-sm">
-      <a href="index.html" class="text-gray-500 hover:text-ink">&larr; Topへ戻る</a>
+    <!-- 14: 注意事項 -->
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">注意事項</h2>
+      <div class="caution-card">
+        <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+        <p>個人情報を含む資料を生成AIへ入力しないでください。児童生徒名、保護者名、住所、電話番号、成績、健康情報などは、番号・記号・仮名に置き換えてください。AIが生成した内容は、そのまま使用せず、必ず教職員が内容を確認してください。</p>
+      </div>
+    </section>
+
+    <!-- 15: 学校現場での活用例 -->
+    <section class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">学校現場での活用例</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">教育相談</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">保護者面談</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">学年会</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">職員会議</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">PTA役員会</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">校内研修</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">進路面談</div>
+        <div class="bg-white border border-gray-100 rounded-xl px-4 py-3 text-center text-sm font-bold text-gray-600">学校訪問後の記録</div>
+      </div>
+    </section>
+
+    <!-- 16: 講座のまとめ -->
+    <section class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">講座のまとめ</h2>
+      <div class="hidden-theme rounded-2xl p-8 text-center text-gray-700 font-bold leading-loose">
+        話す・録音する &rarr; 文字起こしする &rarr; Geminiへ貼り付ける &rarr; 相手に合わせた文章を作る &rarr; 教職員が確認して活用する
+      </div>
+    </section>
+
+    <!-- 17〜19: 配布資料・復習動画・アンケート -->
+    <section class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">資料・復習・アンケート</h2>
+      <div class="grid md:grid-cols-3 gap-5 mb-8">
+        <div id="lecture1-material" class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">description</span>
+          <h3>配布資料</h3>
+          <p>当日のスライドや配布用資料を確認できます。</p>
+          <a href="#lecture1-material" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">資料を開く</a>
+        </div>
+        <div id="lecture1-video" class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">play_circle</span>
+          <h3>復習動画</h3>
+          <p>GoogleスライドをGoogle Vidsで動画化した復習用コンテンツです。</p>
+          <a href="#lecture1-video" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">動画を見る</a>
+        </div>
+        <div id="lecture1-survey" class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">assignment</span>
+          <h3>講座アンケート</h3>
+          <p>研修改善のため、5分程度でご回答ください。</p>
+          <a href="#lecture1-survey" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">アンケートに回答する</a>
+        </div>
+      </div>
+
+      <div class="video-frame">
+        <div class="video-placeholder">復習動画は研修後に公開します。</div>
+        <!-- 動画公開時は以下のiframeのコメントを外し、src を差し替えてください
+        <iframe src="" title="第1講座 復習動画" allowfullscreen></iframe>
+        -->
+      </div>
+    </section>
+
+    <!-- 20: 前後ナビ -->
+    <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">
+      <a href="index.html" class="text-gray-500 hover:text-ink">&larr; トップへ戻る</a>
+      <a href="index.html" class="text-gray-400">前の講座はありません</a>
       <a href="section2.html" class="font-bold hover:text-blue-600">第2講座へ &rarr;</a>
     </div>
   </main>

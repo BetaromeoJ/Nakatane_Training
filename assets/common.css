@@ -2,9 +2,25 @@
    共通スタイル: 中種子町情報教育部会研修会サイト
    ============================================================ */
 
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   background: linear-gradient(160deg, #ffffff 0%, #ffffff 45%, #eceffb 100%);
+  font-size: 16px;
 }
 
 .badge { letter-spacing: 0.08em; }
@@ -54,10 +70,23 @@ body {
 .drawer { transition: transform .35s ease; }
 
 /* ------------------------------------------------------------
+   フォーカス表示(キーボード操作用)
+   ------------------------------------------------------------ */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #4f6df5;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* すべてのページ内アンカーで、固定要素に見出しが隠れないようにする */
+section[id], h1[id], h2[id], h3[id] {
+  scroll-margin-top: 96px;
+}
+
+/* ------------------------------------------------------------
    カード・枠のホバー「浮き上がり」エフェクト
-   マウスを乗せると、少し持ち上がって影が強くなる。
-   講座カード(flow-item)、コンセプトカード、リソースカードなど、
-   枠で囲まれた要素すべてに共通適用する。
    ------------------------------------------------------------ */
 .flow-item,
 .card-hover {
@@ -78,10 +107,6 @@ body {
 
 /* ------------------------------------------------------------
    スプラッシュ / ページ遷移演出
-   起動時・各ページ読み込み時に、黒背景＋白文字が下からフェードインで
-   はっきりと表示され、少し保持したのち、黒背景ごと下から上へ
-   シュッと素早くスライドして消える(文字はフェードさせず、
-   背景ごと物理的に画面外へ抜けていく)。
    ------------------------------------------------------------ */
 .splash-overlay {
   position: fixed;
@@ -123,8 +148,6 @@ body {
 
 /* ------------------------------------------------------------
    ボタンの「浮き上がり」エフェクト
-   ホバーで軽く持ち上がり、タップ／クリックした瞬間はさらに
-   大きく持ち上がって影が強くなってから、すっと戻る。
    ------------------------------------------------------------ */
 .btn-tap {
   transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s ease;
@@ -137,4 +160,233 @@ body {
 .btn-tap.lift {
   transform: translateY(-7px) scale(1.035);
   box-shadow: 0 16px 28px -8px rgba(79,109,245,0.4);
+}
+
+/* ------------------------------------------------------------
+   ページ上部の3ボタン(今日の流れ／演習へ／プロンプト集)
+   ------------------------------------------------------------ */
+.quicknav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.quicknav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0.55rem 1.1rem;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1.5px solid #c7d2fe;
+  color: #3346c9;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background .2s ease, transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s ease;
+  white-space: nowrap;
+}
+.quicknav-btn:hover {
+  background: linear-gradient(90deg, #eef2ff 0%, #f3eafe 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -8px rgba(79,109,245,0.35);
+}
+.quicknav-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* ------------------------------------------------------------
+   個人情報・生成AI利用の注意カード
+   ------------------------------------------------------------ */
+.caution-card {
+  background: #fff8e6;
+  border: 1px solid #f3d98b;
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+.caution-card .material-symbols-outlined {
+  color: #b5860b;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+.caution-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #6b5518;
+}
+
+/* ------------------------------------------------------------
+   プロンプトカード
+   ------------------------------------------------------------ */
+.prompt-card {
+  background: #ffffff;
+  border: 1px solid #e7e9f5;
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+.prompt-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+.prompt-card h4 {
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+.prompt-card .prompt-scene {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.2rem;
+}
+.prompt-body {
+  background: #f7f8fc;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  color: #2a2d38;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.prompt-note {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: #8a6d1a;
+  background: #fff8e6;
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.9rem;
+}
+.copy-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: #111114;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s ease, background .2s ease;
+}
+.copy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px -8px rgba(17,17,20,0.35);
+}
+.copy-btn.copied {
+  background: #1b8a5a;
+}
+
+/* アコーディオン(追加プロンプト等) */
+.accordion {
+  border: 1px solid #e7e9f5;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.accordion-item + .accordion-item {
+  border-top: 1px solid #e7e9f5;
+}
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: left;
+  min-height: 44px;
+  border: none;
+  cursor: pointer;
+}
+.accordion-trigger .material-symbols-outlined {
+  transition: transform .2s ease;
+}
+.accordion-trigger[aria-expanded="true"] .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+.accordion-panel {
+  display: none;
+  padding: 0 1.25rem 1.25rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+.accordion-panel.open {
+  display: block;
+}
+
+/* ------------------------------------------------------------
+   下部3カード(配布資料/復習動画/アンケート)
+   ------------------------------------------------------------ */
+.resource-card {
+  background: #ffffff;
+  border: 1px solid #e7e9f5;
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  text-align: left;
+}
+.resource-card .material-symbols-outlined {
+  font-size: 28px;
+  color: #4f6df5;
+  margin-bottom: 0.75rem;
+}
+.resource-card h3 {
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+.resource-card p {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------------------
+   16:9 動画埋め込み枠
+   ------------------------------------------------------------ */
+.video-frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background: #f3f4f8;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid #e7e9f5;
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9aa0b4;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* 印刷対応 */
+@media print {
+  #splash, #menuBtn, #drawer, #overlay, .quicknav, .copy-btn { display: none !important; }
+  body { background: #fff; }
 }
