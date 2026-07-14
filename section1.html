@@ -17,14 +17,12 @@
 
   <div id="copy-announcer" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
 
-  <!-- ===== Floating menu button ===== -->
   <button id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
     <span class="block w-5 h-0.5 bg-ink"></span>
     <span class="block w-5 h-0.5 bg-ink"></span>
     <span class="block w-5 h-0.5 bg-ink"></span>
   </button>
 
-  <!-- ===== Drawer Menu ===== -->
   <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto" aria-label="サイト内メニュー">
     <button id="closeBtn" aria-label="メニューを閉じる" class="mb-6 text-2xl leading-none">&times;</button>
     <ul class="mb-8 space-y-2 text-sm">
@@ -45,7 +43,6 @@
 
   <main class="max-w-4xl mx-auto px-6">
 
-    <!-- 1〜4: 講座番号・タイトル・サブタイトル・キャッチコピー -->
     <header class="relative pt-40 pb-10">
       <span class="bg-number" aria-hidden="true">01</span>
       <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Lecture 01</p>
@@ -54,7 +51,6 @@
       <p class="text-blue-600 font-bold mb-8">話した内容を、相手に伝わる文章へ。</p>
     </header>
 
-    <!-- 5〜6: ねらい・キーワード -->
     <section class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-6">
       <h2 class="text-blue-600 text-xl font-bold mb-4">ねらい</h2>
       <p class="text-gray-600 leading-relaxed mb-6">日々の校務にある「話す・書く・まとめる」仕事を、Geminiとの対話で軽くします。スマートフォンで録音・文字起こしした内容をGeminiに貼り付け、同じ内容から、校内向け議事録、保護者向け連絡文、管理職向け報告、自分用メモを作り分ける方法を体験します。</p>
@@ -64,14 +60,12 @@
       </div>
     </section>
 
-    <!-- 7: ページ内移動ボタン -->
     <nav class="quicknav mb-10" aria-label="第1講座 ページ内メニュー">
       <a href="#lecture1-schedule" class="quicknav-btn" aria-label="今日の流れへ移動"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>今日の流れ</a>
       <a href="#lecture1-practice" class="quicknav-btn" aria-label="演習へ移動"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span>演習へ</a>
       <a href="#lecture1-prompts" class="quicknav-btn" aria-label="プロンプト集へ移動"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span>プロンプト集</a>
     </nav>
 
-    <!-- 8: 今日できるようになること -->
     <section class="mb-14">
       <h2 class="text-blue-600 text-xl font-bold mb-6">今日できるようになること</h2>
       <ul class="space-y-3">
@@ -83,7 +77,6 @@
       </ul>
     </section>
 
-    <!-- 9: 75分の流れ -->
     <section id="lecture1-schedule" class="mb-16">
       <h2 class="text-blue-600 text-xl font-bold mb-6">75分の流れ</h2>
       <div class="space-y-3">
@@ -98,7 +91,6 @@
       </div>
     </section>
 
-    <!-- 10: 使用するツール -->
     <section class="mb-14">
       <h2 class="text-blue-600 text-xl font-bold mb-6">使用するツール</h2>
       <ul class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -109,7 +101,6 @@
       </ul>
     </section>
 
-    <!-- 11: 事前準備 -->
     <section class="mb-14">
       <h2 class="text-blue-600 text-xl font-bold mb-6">事前準備</h2>
       <ul class="space-y-3 mb-10">
@@ -137,7 +128,6 @@
       <p class="text-xs text-gray-400 mt-4">補足: 端末によって録音・文字起こしの方法は異なりますが、文字になった後の流れは共通です。</p>
     </section>
 
-    <!-- 個人情報・生成AI利用の注意カード(演習前) -->
     <section class="mb-10">
       <div class="caution-card">
         <span class="material-symbols-outlined" aria-hidden="true">warning</span>
@@ -145,7 +135,6 @@
       </div>
     </section>
 
-    <!-- 12: 演習手順 -->
     <section id="lecture1-practice" class="mb-16">
       <h2 class="text-blue-600 text-xl font-bold mb-6">演習手順</h2>
       <div class="space-y-6">
@@ -158,7 +147,6 @@
       </div>
     </section>
 
-    <!-- 13: コピーして使えるプロンプト -->
     <section id="lecture1-prompts" class="mb-16">
       <h2 class="text-blue-600 text-xl font-bold mb-6">コピーして使えるプロンプト</h2>
 
@@ -275,7 +263,6 @@
       </div>
     </section>
 
-    <!-- 14: 注意事項 -->
     <section class="mb-14">
       <h2 class="text-blue-600 text-xl font-bold mb-6">注意事項</h2>
       <div class="caution-card">
@@ -284,7 +271,6 @@
       </div>
     </section>
 
-    <!-- 15: 学校現場での活用例 -->
     <section class="mb-14">
       <h2 class="text-blue-600 text-xl font-bold mb-6">学校現場での活用例</h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -299,7 +285,6 @@
       </div>
     </section>
 
-    <!-- 16: 講座のまとめ -->
     <section class="mb-16">
       <h2 class="text-blue-600 text-xl font-bold mb-6">講座のまとめ</h2>
       <div class="hidden-theme rounded-2xl p-8 text-center text-gray-700 font-bold leading-loose">
@@ -307,7 +292,6 @@
       </div>
     </section>
 
-    <!-- 17〜19: 配布資料・復習動画・アンケート -->
     <section class="mb-16">
       <h2 class="text-blue-600 text-xl font-bold mb-6">資料・復習・アンケート</h2>
       <div class="grid md:grid-cols-3 gap-5 mb-8">
@@ -339,7 +323,6 @@
       </div>
     </section>
 
-    <!-- 20: 前後ナビ -->
     <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">
       <a href="index.html" class="text-gray-500 hover:text-ink">&larr; トップへ戻る</a>
       <a href="index.html" class="text-gray-400">前の講座はありません</a>
