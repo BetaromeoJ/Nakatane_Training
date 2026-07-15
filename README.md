@@ -19,7 +19,7 @@
 
 ```
 index.html            トップページ(ポータルのホーム)
-section1.html          第1講座: Geminiで校務改革
+section1.html          第1講座: Geminiで校務改善
 section2.html          第2講座: Googleフォームで校務改善
 section3.html          第3講座: NotebookLMで教材研究・校務改革
 section4.html          第4講座: Canva教育版×AI
