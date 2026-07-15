@@ -19,32 +19,8 @@
   <!-- コピー完了などを通知するライブリージョン(視覚的には非表示) -->
   <div id="copy-announcer" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
 
-  <!-- ===== Floating menu button ===== -->
-  <button id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
-    <span class="block w-5 h-0.5 bg-ink"></span>
-    <span class="block w-5 h-0.5 bg-ink"></span>
-    <span class="block w-5 h-0.5 bg-ink"></span>
-  </button>
-
-  <!-- ===== Drawer Menu ===== -->
-  <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto" aria-label="サイト内メニュー">
-    <button id="closeBtn" aria-label="メニューを閉じる" class="mb-6 text-2xl leading-none">&times;</button>
-
-    <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="index.html" aria-current="page" class="flex justify-between py-1 font-bold text-blue-600"><span>トップ</span></a></li>
-      <li><a href="section1.html" class="flex justify-between py-1"><span>第1講座</span><span class="text-gray-400">Gemini</span></a></li>
-      <li><a href="section2.html" class="flex justify-between py-1"><span>第2講座</span><span class="text-gray-400">Googleフォーム</span></a></li>
-      <li><a href="section3.html" class="flex justify-between py-1"><span>第3講座</span><span class="text-gray-400">NotebookLM</span></a></li>
-      <li><a href="section4.html" class="flex justify-between py-1"><span>第4講座</span><span class="text-gray-400">Canva</span></a></li>
-    </ul>
-    <ul class="mb-8 space-y-2 text-sm border-t border-gray-100 pt-6">
-      <li><a href="section1.html#lecture1-material" class="flex justify-between py-1"><span>配布資料</span></a></li>
-      <li><a href="section1.html#lecture1-video" class="flex justify-between py-1"><span>復習動画</span></a></li>
-      <li><a href="section1.html#lecture1-survey" class="flex justify-between py-1"><span>アンケート</span></a></li>
-      <li><a href="#privacy" class="flex justify-between py-1"><span>個人情報の取扱い</span></a></li>
-    </ul>
-  </nav>
-  <div id="overlay" class="fixed inset-0 bg-black/30 z-40 hidden"></div>
+  <!-- ===== メニュー/ドロワー(共通部品) ===== -->
+  <div data-include="assets/partials/nav.html"></div>
 
   <!-- ===== Hero ===== -->
   <header class="pt-40 pb-20 px-6 max-w-4xl mx-auto">
@@ -196,10 +172,8 @@
     </div>
   </section>
 
-  <!-- ===== Footer ===== -->
-  <footer class="text-center text-xs text-gray-400 py-10">
-    &copy; 2026 中種子町情報教育部会研修会. Presented by 和田倫周(Michi Wada).
-  </footer>
+  <!-- ===== フッター(共通部品) ===== -->
+  <div data-include="assets/partials/footer.html"></div>
 
   <script src="assets/common.js"></script>
 </body>

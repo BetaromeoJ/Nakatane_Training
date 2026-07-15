@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プロンプト集 | 中種子町情報教育部会研修会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Material+Symbols+Outlined" rel="stylesheet">
+<link rel="stylesheet" href="assets/tailwind.css">
+<link rel="stylesheet" href="assets/common.css">
+</head>
+<body class="text-ink antialiased">
+
+  <div id="splash" class="splash-overlay">
+    <div class="splash-text">プロンプト集<span class="splash-sub">PROMPTS</span></div>
+  </div>
+
+  <div id="copy-announcer" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
+
+  <div data-include="assets/partials/nav.html"></div>
+
+  <main class="max-w-3xl mx-auto px-6">
+    <header class="pt-40 pb-10">
+      <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Prompts</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">プロンプト集</h1>
+      <p class="text-gray-600 text-lg leading-relaxed">コピーしてすぐに使えるプロンプトは、各講座ページに実装されています。ここから、見たい講座のプロンプト集へ移動できます。</p>
+    </header>
+
+    <!-- ============================================================
+         プロンプトの実体(コピーボタン付きカード)は各講座ページ
+         (sectionN.html の #lectureN-prompts)にあります。
+         このページは各講座への案内役(ハブ)で、プロンプト内容を
+         二重管理しないための構造です。
+         新しい講座を追加する場合は、この一覧にリンクを1件追加するだけで済みます。
+         ============================================================ -->
+    <section class="pb-16 space-y-4">
+      <a href="section1.html#lecture1-prompts" class="card-hover flex items-center justify-between bg-white border border-gray-100 rounded-2xl p-6">
+        <div>
+          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-2 uppercase">Lecture 01</span>
+          <h3 class="text-lg font-bold">Geminiで校務改革のプロンプト</h3>
+          <p class="text-gray-500 text-sm">議事録・連絡文・報告・メモの4種類</p>
+        </div>
+        <span class="material-symbols-outlined text-blue-500" aria-hidden="true">arrow_forward</span>
+      </a>
+
+      <a href="section2.html#lecture2-prompts" class="card-hover flex items-center justify-between bg-white border border-gray-100 rounded-2xl p-6">
+        <div>
+          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-2 uppercase">Lecture 02</span>
+          <h3 class="text-lg font-bold">Googleフォームで校務改善のプロンプト</h3>
+          <p class="text-gray-500 text-sm">質問作成・分析・報告書の3種類</p>
+        </div>
+        <span class="material-symbols-outlined text-blue-500" aria-hidden="true">arrow_forward</span>
+      </a>
+
+      <a href="section3.html#lecture3-prompts" class="card-hover flex items-center justify-between bg-white border border-gray-100 rounded-2xl p-6">
+        <div>
+          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-2 uppercase">Lecture 03</span>
+          <h3 class="text-lg font-bold">NotebookLMのプロンプト</h3>
+          <p class="text-gray-500 text-sm">要約・教材研究・発問・報告書の4種類</p>
+        </div>
+        <span class="material-symbols-outlined text-blue-500" aria-hidden="true">arrow_forward</span>
+      </a>
+
+      <a href="section4.html#lecture4-prompts" class="card-hover flex items-center justify-between bg-white border border-gray-100 rounded-2xl p-6">
+        <div>
+          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-2 uppercase">Lecture 04</span>
+          <h3 class="text-lg font-bold">Canva教育版×AIのプロンプト</h3>
+          <p class="text-gray-500 text-sm">スライド生成・スピーカーノート・子ども向け説明の3種類</p>
+        </div>
+        <span class="material-symbols-outlined text-blue-500" aria-hidden="true">arrow_forward</span>
+      </a>
+    </section>
+
+    <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">
+      <a href="index.html" class="text-gray-500 hover:text-ink">&larr; トップへ戻る</a>
+    </div>
+  </main>
+
+  <div data-include="assets/partials/footer.html"></div>
+
+  <script src="assets/common.js"></script>
+</body>
+</html>

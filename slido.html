@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みんなの質問広場 | 中種子町情報教育部会研修会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Material+Symbols+Outlined" rel="stylesheet">
+<link rel="stylesheet" href="assets/tailwind.css">
+<link rel="stylesheet" href="assets/common.css">
+</head>
+<body class="text-ink antialiased">
+
+  <div id="splash" class="splash-overlay">
+    <div class="splash-text">みんなの質問広場<span class="splash-sub">SLIDO</span></div>
+  </div>
+
+  <div id="copy-announcer" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
+
+  <div data-include="assets/partials/nav.html"></div>
+
+  <!-- ============================================================
+       Slido設定
+       URLが決まったら SLIDO_URL に設定するだけで、
+       下の「準備中」表示が自動的に「Slidoを開く」ボタンに切り替わります。
+       ============================================================ -->
+  <script>
+    const SLIDO_URL = ""; // 例: "https://app.sli.do/event/xxxxxxxx"
+  </script>
+
+  <main class="max-w-3xl mx-auto px-6">
+    <header class="pt-40 pb-10">
+      <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Slido</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">みんなの質問広場</h1>
+      <p class="text-gray-600 text-lg leading-relaxed">研修に関する質問や疑問を、匿名で気軽に共有できる広場です。</p>
+    </header>
+
+    <section id="slido-area" class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10 mb-16 text-center">
+      <div class="avatar text-3xl mx-auto mb-6">🗨️</div>
+      <p id="slido-message" class="text-gray-500 mb-2 font-bold">Slidoは準備中です。</p>
+      <p class="text-gray-400 text-sm">URLが公開され次第、このページからアクセスできるようになります。</p>
+      <a id="slido-link" href="#" target="_blank" rel="noopener" class="btn-tap hidden inline-block mt-6 bg-ink text-white rounded-full px-10 py-4 text-lg font-bold hover:bg-gray-800 transition">Slidoを開く</a>
+    </section>
+
+    <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">
+      <a href="index.html" class="text-gray-500 hover:text-ink">&larr; トップへ戻る</a>
+    </div>
+  </main>
+
+  <div data-include="assets/partials/footer.html"></div>
+
+  <script src="assets/common.js"></script>
+  <script>
+    if (SLIDO_URL) {
+      const link = document.getElementById('slido-link');
+      const message = document.getElementById('slido-message');
+      link.href = SLIDO_URL;
+      link.classList.remove('hidden');
+      message.textContent = 'Slidoで質問を共有できます。';
+    }
+  </script>
+</body>
+</html>

@@ -17,29 +17,7 @@
 
   <div id="copy-announcer" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
 
-  <button id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
-    <span class="block w-5 h-0.5 bg-ink"></span>
-    <span class="block w-5 h-0.5 bg-ink"></span>
-    <span class="block w-5 h-0.5 bg-ink"></span>
-  </button>
-
-  <nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto" aria-label="サイト内メニュー">
-    <button id="closeBtn" aria-label="メニューを閉じる" class="mb-6 text-2xl leading-none">&times;</button>
-    <ul class="mb-8 space-y-2 text-sm">
-      <li><a href="index.html" class="flex justify-between py-1"><span>トップ</span></a></li>
-      <li><a href="section1.html" aria-current="page" class="flex justify-between py-1 font-bold text-blue-600"><span>第1講座</span><span>Gemini</span></a></li>
-      <li><a href="section2.html" class="flex justify-between py-1"><span>第2講座</span><span class="text-gray-400">Googleフォーム</span></a></li>
-      <li><a href="section3.html" class="flex justify-between py-1"><span>第3講座</span><span class="text-gray-400">NotebookLM</span></a></li>
-      <li><a href="section4.html" class="flex justify-between py-1"><span>第4講座</span><span class="text-gray-400">Canva</span></a></li>
-    </ul>
-    <ul class="mb-8 space-y-2 text-sm border-t border-gray-100 pt-6">
-      <li><a href="#lecture1-material" class="flex justify-between py-1"><span>配布資料</span></a></li>
-      <li><a href="#lecture1-video" class="flex justify-between py-1"><span>復習動画</span></a></li>
-      <li><a href="#lecture1-survey" class="flex justify-between py-1"><span>アンケート</span></a></li>
-      <li><a href="index.html#privacy" class="flex justify-between py-1"><span>個人情報の取扱い</span></a></li>
-    </ul>
-  </nav>
-  <div id="overlay" class="fixed inset-0 bg-black/30 z-40 hidden"></div>
+  <div data-include="assets/partials/nav.html"></div>
 
   <main class="max-w-4xl mx-auto px-6">
 
@@ -61,9 +39,9 @@
     </section>
 
     <nav class="quicknav mb-10" aria-label="第1講座 ページ内メニュー">
-      <a href="#lecture1-schedule" class="quicknav-btn" aria-label="講座の流れへ移動"><span class="material-symbols-outlined" aria-hidden="true">schedule</span>今日の流れ</a>
-      <a href="#lecture1-practice" class="quicknav-btn" aria-label="演習へ移動"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span>演習へ</a>
-      <a href="#lecture1-prompts" class="quicknav-btn" aria-label="プロンプト集へ移動"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span>プロンプト集</a>
+      <a href="#lecture1-material" class="quicknav-btn" aria-label="研修資料へ移動"><span class="material-symbols-outlined" aria-hidden="true">description</span>研修資料</a>
+      <a href="#lecture1-prompts" class="quicknav-btn" aria-label="プロンプトへ移動"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span>プロンプト</a>
+      <a href="tools.html" class="quicknav-btn" aria-label="便利ツールへ移動"><span class="material-symbols-outlined" aria-hidden="true">handyman</span>便利ツール</a>
     </nav>
 
     <section class="mb-14">
@@ -323,12 +301,16 @@
       </div>
     </section>
 
+    <div data-include="assets/partials/lecture-bottom-cards.html"></div>
+
     <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">
       <a href="index.html" class="text-gray-500 hover:text-ink">&larr; トップへ戻る</a>
       <a href="index.html" class="text-gray-400">前の講座はありません</a>
       <a href="section2.html" class="font-bold hover:text-blue-600">第2講座へ &rarr;</a>
     </div>
   </main>
+
+  <div data-include="assets/partials/footer.html"></div>
 
   <script src="assets/common.js"></script>
 </body>

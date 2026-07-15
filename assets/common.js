@@ -1,9 +1,47 @@
 // ============================================================
 // 共通スクリプト: 中種子町情報教育部会研修会サイト
+//
+// 構成:
+//   1. includePartials()      … data-include 属性のある要素へ、
+//                                 assets/partials/ 以下のHTML片を読み込む。
+//                                 (ヘッダー/フッター/講座下部カードなど、
+//                                  複数ページで共通の部品を1ファイルに集約)
+//   2. highlightCurrentNav()  … 読み込んだドロワーメニューの中から、
+//                                 現在開いているページのリンクをハイライト。
+//   3. initInteractions()     … スプラッシュ演出・ドロワー開閉・
+//                                 ボタンの浮き上がり・ページ内スムーススクロール・
+//                                 プロンプトのコピー・アコーディオンの初期化。
+//                                 (見た目・動きは既存のものと同一)
 // ============================================================
 
-document.addEventListener('DOMContentLoaded', () => {
+async function includePartials() {
+  const nodes = Array.from(document.querySelectorAll('[data-include]'));
+  await Promise.all(nodes.map(async (node) => {
+    const url = node.getAttribute('data-include');
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const html = await res.text();
+      node.outerHTML = html;
+    } catch (err) {
+      // 部品の読み込みに失敗した場合でも、ページ本体は表示され続ける
+      console.error('部品の読み込みに失敗しました:', url, err);
+    }
+  }));
+}
 
+function highlightCurrentNav() {
+  const currentFile = (location.pathname.split('/').pop() || 'index.html');
+  document.querySelectorAll('#drawer a[href]').forEach((link) => {
+    const hrefFile = link.getAttribute('href').split('#')[0].split('/').pop();
+    if (hrefFile === currentFile) {
+      link.setAttribute('aria-current', 'page');
+      link.classList.add('font-bold', 'text-blue-600');
+    }
+  });
+}
+
+function initInteractions() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---- スプラッシュ演出 ----
@@ -132,5 +170,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (panel) panel.classList.toggle('open', !expanded);
     });
   });
+}
 
+document.addEventListener('DOMContentLoaded', async () => {
+  await includePartials();
+  highlightCurrentNav();
+  initInteractions();
 });

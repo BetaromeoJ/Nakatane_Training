@@ -1,0 +1,44 @@
+<!-- ============================================================
+     共通パーツ: ハンバーガーメニュー + ドロワーナビ + オーバーレイ
+     全ページで data-include="assets/partials/nav.html" として読み込む。
+     サイト構成が増えた場合(FAQ追加・活用事例追加など)は、この1ファイルの
+     リンク一覧を更新するだけで全ページに反映される。
+     ============================================================ -->
+<button id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer" class="fixed top-6 right-6 z-40 w-12 h-12 rounded-full bg-white shadow-md flex flex-col items-center justify-center gap-1.5">
+  <span class="block w-5 h-0.5 bg-ink"></span>
+  <span class="block w-5 h-0.5 bg-ink"></span>
+  <span class="block w-5 h-0.5 bg-ink"></span>
+</button>
+
+<nav id="drawer" class="drawer fixed top-0 right-0 h-full w-80 bg-white z-50 shadow-2xl translate-x-full px-8 py-8 overflow-y-auto" aria-label="サイト内メニュー">
+  <button id="closeBtn" aria-label="メニューを閉じる" class="mb-6 text-2xl leading-none">&times;</button>
+
+  <ul class="mb-8 space-y-2 text-sm">
+    <li><a href="index.html" class="flex justify-between py-1"><span>トップ</span></a></li>
+  </ul>
+
+  <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">講座一覧</h3>
+  <ul class="mb-8 space-y-2 text-sm">
+    <li><a href="index.html#courses" class="flex justify-between py-1"><span>講座一覧</span><span class="text-gray-400">4講座</span></a></li>
+    <li><a href="section1.html" class="flex justify-between py-1"><span>第1講座</span><span class="text-gray-400">Gemini</span></a></li>
+    <li><a href="section2.html" class="flex justify-between py-1"><span>第2講座</span><span class="text-gray-400">Googleフォーム</span></a></li>
+    <li><a href="section3.html" class="flex justify-between py-1"><span>第3講座</span><span class="text-gray-400">NotebookLM</span></a></li>
+    <li><a href="section4.html" class="flex justify-between py-1"><span>第4講座</span><span class="text-gray-400">Canva</span></a></li>
+  </ul>
+
+  <h3 class="text-xs font-bold text-gray-400 uppercase mb-3">ポータルコンテンツ</h3>
+  <ul class="mb-8 space-y-2 text-sm">
+    <li><a href="vids.html" class="flex justify-between py-1"><span>研修動画</span><span class="text-gray-400">Vids</span></a></li>
+    <li><a href="prompts.html" class="flex justify-between py-1"><span>プロンプト集</span></a></li>
+    <li><a href="gem.html" class="flex justify-between py-1"><span>校務お困りごと相談室</span><span class="text-gray-400">Gem</span></a></li>
+    <li><a href="slido.html" class="flex justify-between py-1"><span>みんなの質問広場</span><span class="text-gray-400">Slido</span></a></li>
+    <li><a href="tools.html" class="flex justify-between py-1"><span>おすすめツール集</span></a></li>
+    <li><a href="faq.html" class="flex justify-between py-1"><span>FAQ</span></a></li>
+    <li><a href="cases.html" class="flex justify-between py-1"><span>活用事例</span></a></li>
+  </ul>
+
+  <ul class="space-y-2 text-sm border-t border-gray-100 pt-6">
+    <li><a href="index.html#privacy" class="flex justify-between py-1"><span>個人情報の取扱い</span></a></li>
+  </ul>
+</nav>
+<div id="overlay" class="fixed inset-0 bg-black/30 z-40 hidden"></div>
