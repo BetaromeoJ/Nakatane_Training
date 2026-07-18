@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学ぶ | 中種子町情報教育部会研修会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Material+Symbols+Outlined" rel="stylesheet">
+<link rel="stylesheet" href="assets/tailwind.css">
+<link rel="stylesheet" href="assets/common.css">
+</head>
+<body class="text-ink antialiased">
+
+  <div id="splash" class="splash-overlay">
+    <div class="splash-text">学ぶ<span class="splash-sub">LEARN</span></div>
+  </div>
+
+  <div id="copy-announcer" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
+
+  <div data-include="assets/partials/nav.html"></div>
+
+  <main class="max-w-4xl mx-auto px-6">
+    <header class="pt-40 pb-10">
+      <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Learn</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight">学ぶ</h1>
+      <p class="text-gray-600 text-lg leading-relaxed">4つの講座は、それぞれ独立した教材ページです。どの順番でも、1講座だけでも受講できます。</p>
+    </header>
+
+    <section class="mb-16">
+      <div class="grid md:grid-cols-2 gap-5">
+        <a href="section1.html" class="card-hover block bg-white border border-gray-100 rounded-2xl p-7">
+          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">Lecture 01</span>
+          <h3 class="text-2xl font-bold mb-2">Geminiで校務改善</h3>
+          <p class="text-xs text-gray-400 font-bold mb-3">録音した音声をGeminiで校務文書へ変換する</p>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">録音した音声をGeminiに取り込み、議事録や連絡文などに書き分けます。</p>
+          <p class="text-xs text-gray-400 mb-5">主なツール: スマートフォン / Gemini</p>
+          <span class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold">講座を見る</span>
+        </a>
+        <a href="section2.html" class="card-hover block bg-white border border-gray-100 rounded-2xl p-7">
+          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">Lecture 02</span>
+          <h3 class="text-2xl font-bold mb-2">Googleフォームで校務改善</h3>
+          <p class="text-xs text-gray-400 font-bold mb-3">集める・分析する・改善する</p>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">Googleフォームで集めた回答を自動集計し、Geminiで分析・報告書作成まで行います。</p>
+          <p class="text-xs text-gray-400 mb-5">主なツール: Googleフォーム / スプレッドシート</p>
+          <span class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold">講座を見る</span>
+        </a>
+        <a href="section3.html" class="card-hover block bg-white border border-gray-100 rounded-2xl p-7">
+          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">Lecture 03</span>
+          <h3 class="text-2xl font-bold mb-2">NotebookLMで教材研究・校務改革</h3>
+          <p class="text-xs text-gray-400 font-bold mb-3">読む・深める・教材にする</p>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">信頼できる資料をNotebookLMに読み込ませ、教材研究や資料整理に活用します。</p>
+          <p class="text-xs text-gray-400 mb-5">主なツール: NotebookLM</p>
+          <span class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold">講座を見る</span>
+        </a>
+        <a href="section4.html" class="card-hover block bg-white border border-gray-100 rounded-2xl p-7">
+          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">Lecture 04</span>
+          <h3 class="text-2xl font-bold mb-2">Canva教育版×AI</h3>
+          <p class="text-xs text-gray-400 font-bold mb-3">整える・魅せる・発表する</p>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">AIで生成したスライドや図解をCanvaで整え、発表まで完成させます。</p>
+          <p class="text-xs text-gray-400 mb-5">主なツール: Canva教育版</p>
+          <span class="btn-tap inline-block bg-ink text-white rounded-full px-6 py-2.5 text-sm font-bold">講座を見る</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">研修資料・復習動画</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">description</span>
+          <h3>第1講座の資料</h3>
+          <p>配布資料・復習動画・アンケート</p>
+          <a href="section1.html#lecture1-material" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">開く</a>
+        </div>
+        <div class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">description</span>
+          <h3>第2講座の資料</h3>
+          <p>配布資料・復習動画・アンケート</p>
+          <a href="section2.html#lecture2-material" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">開く</a>
+        </div>
+        <div class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">description</span>
+          <h3>第3講座の資料</h3>
+          <p>配布資料・復習動画・アンケート</p>
+          <a href="section3.html#lecture3-material" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">開く</a>
+        </div>
+        <div class="resource-card">
+          <span class="material-symbols-outlined" aria-hidden="true">description</span>
+          <h3>第4講座の資料</h3>
+          <p>配布資料・復習動画・アンケート</p>
+          <a href="section4.html#lecture4-material" class="btn-tap inline-block bg-ink text-white rounded-full px-5 py-2.5 text-sm font-bold">開く</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-16">
+      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h2 class="text-xl font-bold mb-2">復習用の動画をまとめて見る</h2>
+          <p class="text-gray-500 text-sm">各講座のスライドをGoogle Vidsで動画化した復習コンテンツです。</p>
+        </div>
+        <a href="vids.html" class="btn-tap inline-block bg-ink text-white rounded-full px-8 py-3.5 font-bold whitespace-nowrap">研修動画を見る</a>
+      </div>
+    </section>
+
+    <div data-include="assets/partials/lecture-bottom-cards.html"></div>
+
+    <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">
+      <a href="index.html" class="text-gray-500 hover:text-ink">&larr; トップへ戻る</a>
+      <a href="use.html" class="font-bold hover:text-blue-600">目的から探す(使う) &rarr;</a>
+    </div>
+  </main>
+
+  <div data-include="assets/partials/footer.html"></div>
+
+  <script src="assets/common.js"></script>
+</body>
+</html>

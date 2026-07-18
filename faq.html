@@ -23,29 +23,234 @@
     <header class="pt-40 pb-10">
       <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">FAQ</p>
       <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">よくある質問</h1>
-      <p class="text-gray-600 text-lg leading-relaxed">研修で寄せられた質問を、順次こちらに追加していきます。</p>
+      <p class="text-gray-600 text-lg leading-relaxed">ツールごとに、よくある質問をまとめました。気になる項目をタップして開いてください。</p>
     </header>
 
-    <!-- ============================================================
-         Q&Aカード追加ガイド
-         下記のような .prompt-card を1枚追加するだけで、新しいFAQを
-         増やせます(コピーボタンは不要なので data-copy-target は付けません)。
+    <nav class="quicknav mb-10" aria-label="カテゴリへ移動">
+      <a href="#faq-gemini" class="quicknav-btn">Gemini</a>
+      <a href="#faq-notebooklm" class="quicknav-btn">NotebookLM</a>
+      <a href="#faq-canva" class="quicknav-btn">Canva</a>
+      <a href="#faq-forms" class="quicknav-btn">Googleフォーム</a>
+      <a href="#faq-drive" class="quicknav-btn">Googleドライブ</a>
+      <a href="#faq-calendar" class="quicknav-btn">Googleカレンダー</a>
+      <a href="#faq-classroom" class="quicknav-btn">Classroom</a>
+    </nav>
 
-         <div class="prompt-card">
-           <h4 class="mb-2">Q. 質問文をここに書きます</h4>
-           <p class="text-gray-600 text-sm leading-relaxed">A. 回答文をここに書きます。</p>
-         </div>
+    <!-- ============================================================
+         カテゴリ追加ガイド
+         新しいカテゴリを追加する場合は、上のquicknavにリンクを1つ、
+         下に <section id="faq-新カテゴリ"> ブロックを1つ追加してください。
+         各カテゴリ内のQ&Aは、.accordion-item を1つ複製するだけで
+         増やせます(aria-controls と id は他と重複しない値にしてください)。
          ============================================================ -->
-    <section id="faq-list" class="pb-16">
-      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 text-center">
-        <div class="avatar text-3xl mx-auto mb-4">📮</div>
-        <p class="text-gray-500 font-bold">FAQは近日公開予定です。</p>
-        <p class="text-gray-400 text-sm mt-2">研修中によく聞かれた質問を、順次まとめていきます。</p>
+
+    <section id="faq-gemini" class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">Gemini</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-gemini-1">
+            <span>Q. Geminiは無料で使えますか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-gemini-1" class="accordion-panel">
+            <p>A. 学校で配布されているGoogleアカウントでログインすれば、基本的な機能は追加費用なく利用できます。利用条件は教育委員会の案内を確認してください。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-gemini-2">
+            <span>Q. 会議の録音音声を読み込ませても大丈夫ですか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-gemini-2" class="accordion-panel">
+            <p>A. 活用できますが、個人が特定できる内容は含めないでください。児童生徒名や保護者名などは、記号や仮名に置き換えてから利用しましょう。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-gemini-3">
+            <span>Q. Geminiが作った文章はそのまま使ってよいですか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-gemini-3" class="accordion-panel">
+            <p>A. 下書きとして活用し、内容や事実関係は必ず教職員が確認してから使用してください。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-notebooklm" class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">NotebookLM</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-nblm-1">
+            <span>Q. NotebookLMとGeminiは何が違いますか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-nblm-1" class="accordion-panel">
+            <p>A. NotebookLMは、登録した資料の内容だけを根拠に回答する点が特徴です。資料にない内容を答えないため、教材研究や資料整理に向いています。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-nblm-2">
+            <span>Q. どのくらいの量の資料を登録できますか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-nblm-2" class="accordion-panel">
+            <p>A. 複数の資料をまとめて登録できますが、詰め込みすぎると回答の精度が下がることがあります。関連する資料を1〜3点程度にまとめるのがおすすめです。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-nblm-3">
+            <span>Q. 生成したスライドやインフォグラフィックはそのまま授業で使えますか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-nblm-3" class="accordion-panel">
+            <p>A. たたき台として活用し、Canva等で見た目を整えてから使用することをおすすめします。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-canva" class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">Canva</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-canva-1">
+            <span>Q. Canva教育版は誰でも使えますか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-canva-1" class="accordion-panel">
+            <p>A. 学校アカウントで申請すると、教育版の機能を無料で利用できます。申請方法は情報教育部会にご相談ください。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-canva-2">
+            <span>Q. マジックレイヤーとは何ですか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-canva-2" class="accordion-panel">
+            <p>A. 画像やインフォグラフィックの一部を、テキストや図形として個別に編集できるようにする機能です。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-canva-3">
+            <span>Q. スマートフォンをプレゼンのリモコンにできますか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-canva-3" class="accordion-panel">
+            <p>A. Canvaアプリからプレゼンテーションに接続することで、スマートフォンをリモコン・スピーカーノート表示用のプロンプターとして使えます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-forms" class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">Googleフォーム</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-forms-1">
+            <span>Q. 回答をスプレッドシートに自動で集計できますか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-forms-1" class="accordion-panel">
+            <p>A. フォームの「回答」タブからスプレッドシートにリンクすることで、回答が入力されるたびに自動集計されます。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-forms-2">
+            <span>Q. 個人情報を含む質問をしても大丈夫ですか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-forms-2" class="accordion-panel">
+            <p>A. 必要最小限にとどめ、氏名や連絡先など不要な個人情報は収集しないようにしてください。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-forms-3">
+            <span>Q. 回答を必須にするにはどうすればよいですか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-forms-3" class="accordion-panel">
+            <p>A. 各質問の右下にある「必須」のスイッチをオンにすると、その質問への回答が必須になります。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-drive" class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">Googleドライブ</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-drive-1">
+            <span>Q. 資料を共有する際の権限はどう設定すればよいですか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-drive-1" class="accordion-panel">
+            <p>A. 校内のみで共有する場合は「学校アカウントを持つ全員」など、必要最小限の範囲に設定しましょう。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-drive-2">
+            <span>Q. 誤って削除したファイルは復元できますか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-drive-2" class="accordion-panel">
+            <p>A. ゴミ箱に一定期間残っているため、そこから復元できます。完全に削除する前によく確認してください。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-calendar" class="mb-14">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">Googleカレンダー</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-cal-1">
+            <span>Q. 学年やチームで予定を共有するには?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-cal-1" class="accordion-panel">
+            <p>A. 共有カレンダーを作成し、メンバーを追加することで、行事予定や会議の予定を全員で確認できます。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-cal-2">
+            <span>Q. 会議室の予約はできますか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-cal-2" class="accordion-panel">
+            <p>A. 施設が「リソース」として登録されていれば、予定作成時に会議室を選んで予約できます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq-classroom" class="mb-16">
+      <h2 class="text-blue-600 text-xl font-bold mb-6">Google Classroom</h2>
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-classroom-1">
+            <span>Q. 課題の提出状況はどこで確認できますか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-classroom-1" class="accordion-panel">
+            <p>A. クラスの「採点」タブから、提出済み・未提出の生徒を一覧で確認できます。</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="faq-p-classroom-2">
+            <span>Q. 保護者にもクラスの様子を共有できますか?</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div id="faq-p-classroom-2" class="accordion-panel">
+            <p>A. 保護者サマリー機能を使うと、保護者へ授業の予定や提出状況をメールで自動送信できます。</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">
       <a href="index.html" class="text-gray-500 hover:text-ink">&larr; トップへ戻る</a>
+      <a href="gem.html" class="font-bold hover:text-blue-600">解決しない場合はGemに相談する &rarr;</a>
     </div>
   </main>
 

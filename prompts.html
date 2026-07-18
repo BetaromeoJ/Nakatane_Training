@@ -23,61 +23,195 @@
     <header class="pt-40 pb-10">
       <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Prompts</p>
       <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">プロンプト集</h1>
-      <p class="text-gray-600 text-lg leading-relaxed">コピーしてすぐに使えるプロンプトは、各講座ページに実装されています。ここから、見たい講座のプロンプト集へ移動できます。</p>
+      <p class="text-gray-600 text-lg leading-relaxed">目的やカテゴリ、キーワードでプロンプトを検索できます。よく使うものは&#9733;マークでお気に入り登録しておけます。コピーして使えるプロンプト本体は、各講座ページで確認できます。</p>
     </header>
 
     <!-- ============================================================
-         プロンプトの実体(コピーボタン付きカード)は各講座ページ
-         (sectionN.html の #lectureN-prompts)にあります。
-         このページは各講座への案内役(ハブ)で、プロンプト内容を
-         二重管理しないための構造です。
-         新しい講座を追加する場合は、この一覧にリンクを1件追加するだけで済みます。
+         検索・カテゴリフィルタ
          ============================================================ -->
-    <section class="pb-16 space-y-4">
-      <a href="section1.html#lecture1-prompts" class="card-hover flex items-center justify-between bg-white border border-gray-100 rounded-2xl p-6">
-        <div>
-          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-2 uppercase">Lecture 01</span>
-          <h3 class="text-lg font-bold">Geminiで校務改善のプロンプト</h3>
-          <p class="text-gray-500 text-sm">議事録・連絡文・報告・メモの4種類</p>
-        </div>
-        <span class="material-symbols-outlined text-blue-500" aria-hidden="true">arrow_forward</span>
-      </a>
+    <section class="mb-8">
+      <input type="search" id="promptSearch" placeholder="キーワードで検索(例: 議事録、保護者、アンケート)"
+             class="w-full bg-white border border-gray-200 rounded-full px-6 py-3.5 text-sm mb-4 focus:outline-none focus:ring-2 focus:ring-blue-300">
+      <div id="categoryFilters" class="quicknav" aria-label="カテゴリで絞り込み"></div>
+    </section>
 
-      <a href="section2.html#lecture2-prompts" class="card-hover flex items-center justify-between bg-white border border-gray-100 rounded-2xl p-6">
-        <div>
-          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-2 uppercase">Lecture 02</span>
-          <h3 class="text-lg font-bold">Googleフォームで校務改善のプロンプト</h3>
-          <p class="text-gray-500 text-sm">質問作成・分析・報告書の3種類</p>
-        </div>
-        <span class="material-symbols-outlined text-blue-500" aria-hidden="true">arrow_forward</span>
-      </a>
-
-      <a href="section3.html#lecture3-prompts" class="card-hover flex items-center justify-between bg-white border border-gray-100 rounded-2xl p-6">
-        <div>
-          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-2 uppercase">Lecture 03</span>
-          <h3 class="text-lg font-bold">NotebookLMのプロンプト</h3>
-          <p class="text-gray-500 text-sm">要約・教材研究・発問・報告書の4種類</p>
-        </div>
-        <span class="material-symbols-outlined text-blue-500" aria-hidden="true">arrow_forward</span>
-      </a>
-
-      <a href="section4.html#lecture4-prompts" class="card-hover flex items-center justify-between bg-white border border-gray-100 rounded-2xl p-6">
-        <div>
-          <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-2 uppercase">Lecture 04</span>
-          <h3 class="text-lg font-bold">Canva教育版×AIのプロンプト</h3>
-          <p class="text-gray-500 text-sm">スライド生成・スピーカーノート・子ども向け説明の3種類</p>
-        </div>
-        <span class="material-symbols-outlined text-blue-500" aria-hidden="true">arrow_forward</span>
-      </a>
+    <!-- ============================================================
+         プロンプト一覧(JSで描画。データを1件追加するだけで
+         カード・検索・フィルタに自動反映される構造)
+         ============================================================ -->
+    <section class="pb-16">
+      <div class="flex items-center justify-between mb-4">
+        <p id="resultCount" class="text-sm text-gray-400 font-bold"></p>
+        <button type="button" id="favOnlyToggle" class="quicknav-btn" aria-pressed="false">
+          <span class="material-symbols-outlined" aria-hidden="true">star</span>お気に入りのみ
+        </button>
+      </div>
+      <div id="promptGrid" class="space-y-4"></div>
     </section>
 
     <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">
       <a href="index.html" class="text-gray-500 hover:text-ink">&larr; トップへ戻る</a>
+      <a href="use.html" class="font-bold hover:text-blue-600">目的から探す(使う) &rarr;</a>
     </div>
   </main>
 
   <div data-include="assets/partials/footer.html"></div>
 
   <script src="assets/common.js"></script>
+  <script>
+    // ============================================================
+    // プロンプトデータ(ここに1件追加するだけで、検索・フィルタ・
+    // お気に入りの対象として自動的に一覧へ表示されます)
+    // ============================================================
+    const PROMPTS = [
+      { id: 'p1-1', lecture: 1, title: '校内向け議事録', desc: '録音した音声から、校内共有用の議事録を作成します。', categories: ['会議', '文書作成'], link: 'section1.html#lecture1-prompts' },
+      { id: 'p1-2', lecture: 1, title: '保護者向け連絡文', desc: '録音した音声から、保護者向けのお知らせ文を作成します。', categories: ['保護者対応', '面談', '文書作成'], link: 'section1.html#lecture1-prompts' },
+      { id: 'p1-3', lecture: 1, title: '管理職向け報告', desc: '録音した音声から、管理職へ提出する報告書を作成します。', categories: ['会議', '校務改善', '文書作成'], link: 'section1.html#lecture1-prompts' },
+      { id: 'p1-4', lecture: 1, title: '自分用メモ', desc: '録音した音声から、見返しやすい箇条書きのメモを作成します。', categories: ['会議', '面談', '文書作成'], link: 'section1.html#lecture1-prompts' },
+      { id: 'p2-1', lecture: 2, title: '質問項目を作る', desc: 'フォームの目的から、回答しやすい質問項目を考えます。', categories: ['Googleフォーム'], link: 'section2.html#lecture2-prompts' },
+      { id: 'p2-2', lecture: 2, title: 'アンケート結果を分析する', desc: '自由記述の回答から、傾向や改善点を整理します。', categories: ['Googleフォーム', '校務改善'], link: 'section2.html#lecture2-prompts' },
+      { id: 'p2-3', lecture: 2, title: '教育委員会向け報告書を作る', desc: '分析結果をもとに、研修報告書のたたき台を作成します。', categories: ['Googleフォーム', '校務改善', '文書作成'], link: 'section2.html#lecture2-prompts' },
+      { id: 'p3-1', lecture: 3, title: '長い資料を短時間で理解する', desc: '登録した資料のポイントを、短時間で把握できるよう整理します。', categories: ['教材研究'], link: 'section3.html#lecture3-prompts' },
+      { id: 'p3-2', lecture: 3, title: '教材研究', desc: '学習指導要領・教材文・指導資料から、単元の教材研究を支援します。', categories: ['教材研究', '授業づくり'], link: 'section3.html#lecture3-prompts' },
+      { id: 'p3-3', lecture: 3, title: '発問を考える', desc: '児童生徒の思考を深める発問を、資料に基づいて提案します。', categories: ['授業づくり', '教材研究'], link: 'section3.html#lecture3-prompts' },
+      { id: 'p3-4', lecture: 3, title: '研修報告書を作る', desc: '研修資料と振り返りメモから、校内共有用の報告書を作成します。', categories: ['文書作成', '校務改善'], link: 'section3.html#lecture3-prompts' },
+      { id: 'p4-1', lecture: 4, title: 'スライドを生成する指示', desc: '登録資料から、研修向けプレゼンテーションのたたき台を作ります。', categories: ['授業づくり'], link: 'section4.html#lecture4-prompts' },
+      { id: 'p4-2', lecture: 4, title: 'スピーカーノートを作る', desc: 'スライドに沿った、話し言葉のスピーカーノートを作成します。', categories: ['授業づくり'], link: 'section4.html#lecture4-prompts' },
+      { id: 'p4-3', lecture: 4, title: '子ども向けの説明に書き換える', desc: 'スライドの内容を、児童向けにやさしく書き換えます。', categories: ['授業づくり'], link: 'section4.html#lecture4-prompts' },
+    ];
+
+    const CATEGORIES = ['すべて', '会議', '保護者対応', '面談', '授業づくり', '教材研究', 'Googleフォーム', '校務改善', '文書作成'];
+    const FAV_KEY = 'nakatane_ict_portal_favorite_prompts';
+
+    const state = { category: 'すべて', query: '', favOnly: false };
+
+    function getFavorites() {
+      try { return JSON.parse(localStorage.getItem(FAV_KEY) || '[]'); } catch (e) { return []; }
+    }
+    function setFavorites(arr) {
+      try { localStorage.setItem(FAV_KEY, JSON.stringify(arr)); } catch (e) { /* noop */ }
+    }
+    function toggleFavorite(id) {
+      const favs = getFavorites();
+      const idx = favs.indexOf(id);
+      if (idx >= 0) { favs.splice(idx, 1); } else { favs.push(id); }
+      setFavorites(favs);
+      renderPrompts();
+    }
+
+    function matchesState(p) {
+      if (state.favOnly && !getFavorites().includes(p.id)) return false;
+      if (state.category !== 'すべて' && !p.categories.includes(state.category)) return false;
+      if (state.query) {
+        const q = state.query.toLowerCase();
+        const hay = (p.title + ' ' + p.desc + ' ' + p.categories.join(' ')).toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    }
+
+    function setActiveStyle(btn, active) {
+      if (active) {
+        btn.style.background = 'linear-gradient(90deg,#4f6df5,#7c5cf0)';
+        btn.style.color = '#ffffff';
+        btn.style.borderColor = 'transparent';
+      } else {
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.style.borderColor = '';
+      }
+    }
+
+    function renderCategoryFilters() {
+      const wrap = document.getElementById('categoryFilters');
+      wrap.innerHTML = '';
+      CATEGORIES.forEach((cat) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'quicknav-btn';
+        btn.textContent = cat;
+        btn.setAttribute('aria-pressed', String(state.category === cat));
+        setActiveStyle(btn, state.category === cat);
+        btn.addEventListener('click', () => {
+          state.category = cat;
+          renderCategoryFilters();
+          renderPrompts();
+        });
+        wrap.appendChild(btn);
+      });
+    }
+
+    function renderPrompts() {
+      const grid = document.getElementById('promptGrid');
+      const favs = getFavorites();
+      const list = PROMPTS.filter(matchesState);
+      document.getElementById('resultCount').textContent = list.length + '件のプロンプト';
+      grid.innerHTML = '';
+
+      if (list.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'card-hover bg-white border border-gray-100 rounded-2xl p-8 text-center';
+        empty.innerHTML = '<p class="text-gray-400 font-bold">該当するプロンプトが見つかりませんでした。</p><p class="text-gray-400 text-sm mt-2">検索キーワードやカテゴリを変えてお試しください。</p>';
+        grid.appendChild(empty);
+        return;
+      }
+
+      list.forEach((p) => {
+        const isFav = favs.includes(p.id);
+        const card = document.createElement('div');
+        card.className = 'card-hover flex items-start justify-between gap-4 bg-white border border-gray-100 rounded-2xl p-6';
+
+        const link = document.createElement('a');
+        link.href = p.link;
+        link.className = 'flex-1 min-w-0';
+        link.innerHTML =
+          '<span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-2 uppercase">Lecture 0' + p.lecture + '</span>' +
+          '<h3 class="text-lg font-bold mb-1">' + p.title + '</h3>' +
+          '<p class="text-gray-500 text-sm mb-3">' + p.desc + '</p>' +
+          '<div class="flex flex-wrap gap-1.5">' +
+          p.categories.map((c) => '<span class="inline-block text-[11px] font-bold px-3 py-1 rounded-full bg-gray-50 text-gray-500">' + c + '</span>').join('') +
+          '</div>';
+
+        const actions = document.createElement('div');
+        actions.className = 'flex flex-col items-center gap-3 shrink-0 pt-1';
+
+        const favBtn = document.createElement('button');
+        favBtn.type = 'button';
+        favBtn.setAttribute('aria-pressed', String(isFav));
+        favBtn.setAttribute('aria-label', p.title + 'をお気に入りに登録');
+        favBtn.style.minWidth = '44px';
+        favBtn.style.minHeight = '44px';
+        favBtn.innerHTML = '<span class="material-symbols-outlined ' + (isFav ? 'text-amber-400' : 'text-gray-300') + '" aria-hidden="true">' + (isFav ? 'star' : 'star_border') + '</span>';
+        favBtn.addEventListener('click', () => toggleFavorite(p.id));
+
+        const arrow = document.createElement('span');
+        arrow.className = 'material-symbols-outlined text-blue-400';
+        arrow.setAttribute('aria-hidden', 'true');
+        arrow.textContent = 'arrow_forward';
+
+        actions.appendChild(favBtn);
+        actions.appendChild(arrow);
+        card.appendChild(link);
+        card.appendChild(actions);
+        grid.appendChild(card);
+      });
+    }
+
+    document.getElementById('promptSearch').addEventListener('input', (e) => {
+      state.query = e.target.value;
+      renderPrompts();
+    });
+
+    const favOnlyToggle = document.getElementById('favOnlyToggle');
+    favOnlyToggle.addEventListener('click', () => {
+      state.favOnly = !state.favOnly;
+      favOnlyToggle.setAttribute('aria-pressed', String(state.favOnly));
+      setActiveStyle(favOnlyToggle, state.favOnly);
+      renderPrompts();
+    });
+
+    renderCategoryFilters();
+    renderPrompts();
+  </script>
 </body>
 </html>

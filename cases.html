@@ -23,7 +23,7 @@
     <header class="pt-40 pb-10">
       <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Cases</p>
       <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">活用事例</h1>
-      <p class="text-gray-600 text-lg leading-relaxed">学校現場での実際の活用事例を、カードで紹介していきます。</p>
+      <p class="text-gray-600 text-lg leading-relaxed">学校現場での実際の活用事例を、カードで紹介します。</p>
     </header>
 
     <!-- ============================================================
@@ -31,18 +31,57 @@
          下記のような .card-hover を1枚追加するだけで、新しい活用事例を
          増やせます。
 
-         <div class="card-hover bg-white border border-gray-100 rounded-2xl p-6">
-           <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">学校名 or 学年</span>
-           <h3 class="text-xl font-bold mb-2">事例タイトル</h3>
+         <div class="card-hover bg-white border border-gray-100 rounded-2xl p-7">
+           <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">事例タイトル</span>
+           <div class="flex flex-wrap gap-4 mb-4 text-sm">
+             <div><span class="text-gray-400 font-bold">使用ツール</span> <span class="font-bold">ツール名</span></div>
+             <div><span class="text-gray-400 font-bold">効果</span> <span class="font-bold text-blue-600">効果の説明</span></div>
+           </div>
            <p class="text-gray-600 text-sm leading-relaxed">事例の説明文をここに書きます。</p>
          </div>
          ============================================================ -->
-    <section id="cases-list" class="pb-16">
-      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 text-center">
-        <div class="avatar text-3xl mx-auto mb-4">🌱</div>
-        <p class="text-gray-500 font-bold">活用事例は近日公開予定です。</p>
-        <p class="text-gray-400 text-sm mt-2">研修後、学校現場での実践が集まり次第、順次紹介していきます。</p>
+    <section id="cases-list" class="grid md:grid-cols-2 gap-5 pb-16">
+
+      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-7">
+        <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">会議録作成</span>
+        <div class="flex flex-wrap gap-4 mb-4 text-sm">
+          <div><span class="text-gray-400 font-bold">使用ツール</span> <span class="font-bold">Gemini</span></div>
+          <div><span class="text-gray-400 font-bold">効果</span> <span class="font-bold text-blue-600">議事録作成時間を大幅短縮</span></div>
+        </div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">学年会や職員会議の音声をGeminiに取り込み、議事録・連絡文・報告書を自動生成。手書きでのまとめ作業がほぼ不要になりました。</p>
+        <a href="section1.html" class="text-sm font-bold text-blue-600">第1講座で学ぶ &rarr;</a>
       </div>
+
+      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-7">
+        <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">教材研究</span>
+        <div class="flex flex-wrap gap-4 mb-4 text-sm">
+          <div><span class="text-gray-400 font-bold">使用ツール</span> <span class="font-bold">NotebookLM</span></div>
+          <div><span class="text-gray-400 font-bold">効果</span> <span class="font-bold text-blue-600">資料の要約と比較が短時間で可能</span></div>
+        </div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">学習指導要領や教材文を読み込ませ、単元の目標整理や発問案の作成にかかる時間を短縮。根拠を確認しながら教材研究を進められます。</p>
+        <a href="section3.html" class="text-sm font-bold text-blue-600">第3講座で学ぶ &rarr;</a>
+      </div>
+
+      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-7">
+        <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">保護者アンケート</span>
+        <div class="flex flex-wrap gap-4 mb-4 text-sm">
+          <div><span class="text-gray-400 font-bold">使用ツール</span> <span class="font-bold">Googleフォーム</span></div>
+          <div><span class="text-gray-400 font-bold">効果</span> <span class="font-bold text-blue-600">集計・分析を自動化</span></div>
+        </div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">行事後アンケートをGoogleフォームで実施し、回答をスプレッドシートへ自動集計。自由記述はGeminiで分析し、次回行事の改善に活用しています。</p>
+        <a href="section2.html" class="text-sm font-bold text-blue-600">第2講座で学ぶ &rarr;</a>
+      </div>
+
+      <div class="card-hover bg-white border border-gray-100 rounded-2xl p-7">
+        <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">授業スライド</span>
+        <div class="flex flex-wrap gap-4 mb-4 text-sm">
+          <div><span class="text-gray-400 font-bold">使用ツール</span> <span class="font-bold">Canva</span></div>
+          <div><span class="text-gray-400 font-bold">効果</span> <span class="font-bold text-blue-600">教材作成時間を短縮</span></div>
+        </div>
+        <p class="text-gray-600 text-sm leading-relaxed mb-4">NotebookLMで作成したスライドの下書きをCanvaへ取り込み、デザインを統一。スピーカーノートも合わせて作成し、発表準備の負担を軽減しました。</p>
+        <a href="section4.html" class="text-sm font-bold text-blue-600">第4講座で学ぶ &rarr;</a>
+      </div>
+
     </section>
 
     <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">

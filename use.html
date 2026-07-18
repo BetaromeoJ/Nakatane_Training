@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>使う | 中種子町情報教育部会研修会</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Material+Symbols+Outlined" rel="stylesheet">
+<link rel="stylesheet" href="assets/tailwind.css">
+<link rel="stylesheet" href="assets/common.css">
+</head>
+<body class="text-ink antialiased">
+
+  <div id="splash" class="splash-overlay">
+    <div class="splash-text">使う<span class="splash-sub">USE</span></div>
+  </div>
+
+  <div id="copy-announcer" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);"></div>
+
+  <div data-include="assets/partials/nav.html"></div>
+
+  <main class="max-w-4xl mx-auto px-6">
+    <header class="pt-40 pb-10">
+      <p class="badge inline-block text-xs font-bold text-blue-600 bg-white border border-gray-200 px-5 py-2 rounded-full mb-6 uppercase">Use</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight">使う</h1>
+      <p class="text-gray-600 text-lg leading-relaxed">ツールの名前からではなく、「やりたいこと」から必要な機能へたどり着けます。気になる目的を選んでください。</p>
+    </header>
+
+    <section id="purpose-minutes" class="card-hover bg-white border border-gray-100 rounded-2xl p-8 mb-6">
+      <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">📝 会議録を作りたい</span>
+      <h2 class="text-xl font-bold mb-5">会議・学年会・打ち合わせの音声を、議事録にする</h2>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="tools.html#tool-gemini" class="quicknav-btn">Gemini</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section1.html#lecture1-prompts" class="quicknav-btn">議事録プロンプト</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section1.html" class="quicknav-btn">第1講座で学ぶ</a>
+      </div>
+    </section>
+
+    <section id="purpose-parent-letter" class="card-hover bg-white border border-gray-100 rounded-2xl p-8 mb-6">
+      <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">👨‍👩‍👧 保護者へのお知らせを作りたい</span>
+      <h2 class="text-xl font-bold mb-5">録音した内容を、保護者向けの読みやすいお知らせ文にする</h2>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="tools.html#tool-gemini" class="quicknav-btn">Gemini</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section1.html#lecture1-prompts" class="quicknav-btn">保護者連絡文プロンプト</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section1.html" class="quicknav-btn">第1講座で学ぶ</a>
+      </div>
+    </section>
+
+    <section id="purpose-survey-create" class="card-hover bg-white border border-gray-100 rounded-2xl p-8 mb-6">
+      <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">📊 アンケートを作りたい</span>
+      <h2 class="text-xl font-bold mb-5">出欠確認・面談希望・研修アンケートなどをすぐに作る</h2>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="tools.html#tool-forms" class="quicknav-btn">Googleフォーム</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section2.html#lecture2-prompts" class="quicknav-btn">質問項目プロンプト</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section2.html" class="quicknav-btn">第2講座で学ぶ</a>
+      </div>
+    </section>
+
+    <section id="purpose-survey-analyze" class="card-hover bg-white border border-gray-100 rounded-2xl p-8 mb-6">
+      <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">📈 アンケート結果を分析したい</span>
+      <h2 class="text-xl font-bold mb-5">集まった自由記述の回答から、傾向や改善点を整理する</h2>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="tools.html#tool-gemini" class="quicknav-btn">Gemini</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section2.html#lecture2-prompts" class="quicknav-btn">分析・報告書プロンプト</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section2.html" class="quicknav-btn">第2講座で学ぶ</a>
+      </div>
+    </section>
+
+    <section id="purpose-research" class="card-hover bg-white border border-gray-100 rounded-2xl p-8 mb-6">
+      <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">📚 教材研究をしたい</span>
+      <h2 class="text-xl font-bold mb-5">指導要領や教材文を読み込ませ、教材研究の時間を短縮する</h2>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="tools.html#tool-notebooklm" class="quicknav-btn">NotebookLM</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section3.html#lecture3-prompts" class="quicknav-btn">教材研究プロンプト</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section3.html" class="quicknav-btn">第3講座で学ぶ</a>
+      </div>
+    </section>
+
+    <section id="purpose-lesson-design" class="card-hover bg-white border border-gray-100 rounded-2xl p-8 mb-6">
+      <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">📝 授業づくりをしたい</span>
+      <h2 class="text-xl font-bold mb-5">資料から発問を考え、児童生徒に伝わる説明に整える</h2>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="tools.html#tool-notebooklm" class="quicknav-btn">NotebookLM</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section3.html#lecture3-prompts" class="quicknav-btn">発問プロンプト</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section4.html#lecture4-prompts" class="quicknav-btn">子ども向け説明プロンプト</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section3.html" class="quicknav-btn">第3講座で学ぶ</a>
+      </div>
+    </section>
+
+    <section id="purpose-slides" class="card-hover bg-white border border-gray-100 rounded-2xl p-8 mb-6">
+      <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">🎨 スライド・教材を作りたい</span>
+      <h2 class="text-xl font-bold mb-5">AIで作った素材を、伝わる見た目に仕上げて発表する</h2>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="tools.html#tool-canva" class="quicknav-btn">Canva教育版</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section4.html#lecture4-prompts" class="quicknav-btn">スライド生成プロンプト</a>
+        <span class="material-symbols-outlined text-gray-300" aria-hidden="true">arrow_forward</span>
+        <a href="section4.html" class="quicknav-btn">第4講座で学ぶ</a>
+      </div>
+    </section>
+
+    <section id="purpose-ai-consult" class="card-hover bg-white border border-gray-100 rounded-2xl p-8 mb-6">
+      <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">🤖 AIに相談したい</span>
+      <h2 class="text-xl font-bold mb-5">何から始めればよいか分からない時は、まず相談する</h2>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="gem.html" class="quicknav-btn">校務お困りごと相談室(Gem)を開く</a>
+      </div>
+    </section>
+
+    <section id="purpose-workspace" class="card-hover bg-white border border-gray-100 rounded-2xl p-8 mb-6">
+      <span class="badge inline-block text-xs font-bold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4 uppercase">📁 Google Workspaceを活用したい</span>
+      <h2 class="text-xl font-bold mb-5">校務の基盤となるアプリへ、まとめてアクセスする</h2>
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="tools.html#tool-workspace" class="quicknav-btn">Drive</a>
+        <a href="tools.html#tool-calendar" class="quicknav-btn">Calendar</a>
+        <a href="tools.html#tool-classroom" class="quicknav-btn">Classroom</a>
+        <a href="tools.html#tool-forms" class="quicknav-btn">Forms</a>
+        <a href="tools.html#tool-docs" class="quicknav-btn">Docs</a>
+        <a href="tools.html#tool-sheets" class="quicknav-btn">Sheets</a>
+      </div>
+    </section>
+
+    <div data-include="assets/partials/lecture-bottom-cards.html"></div>
+
+    <div class="flex flex-wrap justify-between items-center gap-4 border-t border-gray-100 pt-8 pb-20 text-sm">
+      <a href="index.html" class="text-gray-500 hover:text-ink">&larr; トップへ戻る</a>
+      <a href="learn.html" class="font-bold hover:text-blue-600">講座で学ぶ &rarr;</a>
+    </div>
+  </main>
+
+  <div data-include="assets/partials/footer.html"></div>
+
+  <script src="assets/common.js"></script>
+</body>
+</html>
